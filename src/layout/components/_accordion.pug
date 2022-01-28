@@ -1,0 +1,63 @@
+//- https://getuikit.com/docs/accordion#component-options
+
+//-
+//- Обертка аккордиона, внутрь слот для контента - табы аккордиона
+//-
+
+mixin Accordion
+	-
+		const { onlyHTML,
+			active, animation, collapsible, content, duration, multiple, targets, toggle, transition, offset } = Component(attributes, {
+
+			onlyHTML: { type: Boolean, default: false },
+
+			active: { type: Number, defaultValue: false },
+
+			animation: { type: Boolean, defaultValue: true },
+
+			collapsible: { type: Boolean, defaultValue: true },
+
+			content: { type: String, defaultValue: '> .uk-accordion-content' },
+
+			duration: { type: Number, default: 250 },
+
+			multiple: { type: Boolean, defaultValue: false },
+
+			targets: { type: String, defaultValue: '> *' },
+
+			toggle: { type: String, defaultValue: '> .uk-accordion-title' },
+
+			transition: { type: String, default: 'cubic-bezier(.6,0,.77,1)' },
+
+			offset: { type: Number, defaultValue: 0 },
+		})
+
+		if (!onlyHTML) attributes['data-uk-accordion'] = setUkOptions({ active, animation, collapsible, content, duration, multiple, targets, transition, offset }) 
+
+
+
+	ul.accordion&attributes(attributes)
+		block
+
+//-
+//- Один таб аккордиона
+//-
+
+mixin AccordionItem
+	-
+		const { title, isOpen } = Component(attributes, {
+			title: { type: String, required: true },
+
+			isOpen: { type: Boolean, default: false },
+		})
+
+
+	- if (isOpen) { attributes.class += ' uk-open' }
+
+	li.accordion-item&attributes(attributes)
+		a.accordion-item__title.uk-accordion-title(href="#")
+			p!= title
+
+			//- block closeIcon
+		.accordion-item__content.uk-accordion-content 
+			block

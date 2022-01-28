@@ -1,0 +1,77 @@
+//- https://getuikit.com/docs/slider#component-options
+
+mixin Slider
+	-
+		const { 
+			onlyHTML, 
+			autoplay, autoplayInterval,  center, draggable, easing, finite, index, pauseOnHover,  sets, velocity } = Component(attributes, {
+
+			onlyHTML: { type: Boolean, default: false },
+
+			autoplay: { type: Boolean, defaultValue: false },
+
+			autoplayInterval: { type: Number, defaultValue: 7000 },
+
+			center: { type: Boolean, defaultValue: false },
+
+			draggable: { type: Boolean, defaultValue: true },
+
+			easing: { type: String, defaultValue: 'ease' },
+
+			finite: { type: Boolean, defaultValue: false },
+
+			index: { type: Number, defaultValue: 0 },
+
+			pauseOnHover: { type: Boolean, defaultValue: true },
+
+			sets: { type: Boolean, defaultValue: false },
+
+			velocity: { type: Number, defaultValue: 1 },
+		})
+
+		if (!onlyHTML) attributes['data-uk-slider'] = setUkOptions({ autoplay, 'autoplay-interval': autoplayInterval, center, draggable, easing, finite, index, 'pause-on-hover': pauseOnHover, sets, velocity }) 
+
+	.slider&attributes(attributes)
+		block 
+
+mixin SliderItems
+	-
+		const { overflowVisible } = Component(attributes, {
+			overflowVisible: {
+				type: Boolean,
+				default: false,
+			},
+		})
+
+	.slider__container.uk-slider-container(class = overflowVisible && 'slider__container--visible')
+		ul.slider-items.uk-slider-items&attributes(attributes)
+			block
+
+mixin SliderItem 
+	li.slider-item&attributes(attributes)
+		.slider-item__content
+			block
+
+
+
+mixin SliderDotnav
+	ul.dotnav.uk-slider-nav&attributes(attributes)
+
+mixin SliderSlidenav
+	ul.slidenav&attributes(attributes)
+		li.slidenav__item(data-uk-slider-item="previous")
+			a.slidenav__link.slidenav__link--prev(href="#")
+				//- +icon('angle-left').slidenav__icon
+		li.slidenav__item(data-uk-slider-item="next")
+			a.slidenav__link.slidenav__link--next(href="#")
+				//- +icon('angle-right').slidenav__icon
+
+mixin SliderThumbnav(length, imgSrc = `slider-thumb-img-`)
+	ul.thumbnav&attributes(attributes)
+		if block 
+			block 
+		else
+			- for (var i = 0; i < length; i++)
+				li.thumbnav__item(data-uk-slider-item=i)
+					a.thumbnav__link(href="#")
+						+Picture(jpg, imgSrc)

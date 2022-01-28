@@ -1,0 +1,39 @@
+include _framework
+include _interfaces
+include _vars
+include _filters
+include _components
+
+doctype html
+html(lang="ru")
+	head
+		block head
+			meta(charset="UTF-8")
+			meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+			meta(name="format-detection" content="telephone=no")
+			meta(content="ie=edge" http-equiv="x-ua-compatible")
+			meta(property="og:image" content=`/ogimage.jpg`)
+
+			link(rel="stylesheet" href!=stylesPath)
+
+			include includes/_favicon
+			include includes/_metrika
+	body
+		.app-wrapper
+			block header
+				include components/_header
+
+			main.main
+				block content
+
+			block footer
+				include components/_footer
+
+			block modals
+				include modals/_thanks
+				include modals/_callback
+
+			include includes/_svg-icons
+
+		block scripts
+			script(src!=scriptsPath defer)

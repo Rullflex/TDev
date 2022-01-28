@@ -1,0 +1,38 @@
+-
+    const headerLinksList = [
+        {
+            title: '',
+            href: '#',
+        },
+    ]
+
+mixin headerLinksList
+    ul.header__links
+        each link, idx  in headerLinksList
+            li.header__link-item: a.header__link(href=link.href title=link.title data-uk-scroll)= link.title
+
+
+mixin menu
+    .header__menu.menu
+        a.header__menu-icon.menu-icon(href="#") #[i]#[i]#[i]#[i]
+        .header__menu-drop.menu-drop(data-uk-dropdown="mode: click; pos: bottom-justify; boundary: .header; boundary-align: true; animation: uk-animation-slide-top-small; duration: 300")
+            block
+
+mixin Header 
+    -
+        const { sticky } = Component(attributes, {
+            sticky: { type: Boolean, default: false },
+        })
+
+        if (sticky) attributes['data-uk-sticky'] = 'top: 90vh; animation: uk-animation-slide-top'
+
+    header&attributes(attributes)
+        block
+
+//- Template
+
++Header.header
+    .container 
+        .header__row 
+            +menu
+                +headerLinksList

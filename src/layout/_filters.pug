@@ -1,0 +1,46 @@
+-
+    function camelize(str){
+        let arr = str.split('-');
+        let capital = arr.map((item, index) => index ? item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() : item.toLowerCase());
+        return capital.join("");
+    }
+
+    function kebabize (str) {
+        return str.split('').map((letter, idx) => {
+            return letter.toUpperCase() === letter
+            ? `${idx !== 0 ? '-' : ''}${letter.toLowerCase()}`
+            : letter;
+        }).join('');
+    }
+
+    // оставляет только цифры
+
+    function digits(value) {
+        return +value.replace(/\D/g, '');
+    }
+
+    // превращает число в валюту, добавляя пробелы и знак рубля
+
+    function makeCurrencyFormatter(minimumFractionDigits = 0) {
+        return new Intl.NumberFormat('ru', { style: 'currency', currency: 'RUB', minimumFractionDigits });
+    }
+
+    // Creates a new currency formatter without decimal places.
+    const currencyFormatter = makeCurrencyFormatter(0);
+    // Creates a new currency formatter with two decimal places.
+    const currencyFormaterWithPennies = makeCurrencyFormatter(2);
+
+    function money(value, fractionDigits = 0) {
+        let formatter = currencyFormatter;
+
+        value = typeof value === 'number' ? value : digits(value);
+
+        if (fractionDigits === 2) {
+            formatter = currencyFormaterWithPennies;
+        } else if (fractionDigits > 0) {
+            // Creates a new currency formatter with N decimal places.
+            formatter = makeCurrencyFormatter(fractionDigits);
+        }
+
+        return formatter.format(value);
+    };

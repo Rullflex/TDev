@@ -1,0 +1,41 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $transition--very-fast;
+    user-select: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    overflow: visible;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:active {
+        // состояние для тапа
+    }
+
+    &:focus-visible {
+        // фокус через клавиатуру
+    }
+}

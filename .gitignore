@@ -1,0 +1,21 @@
+# Файлы и папки операционной системы
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Вспомогательные файлы
+*.log*
+node_modules/
+reports/
+
+# Папка с собранными файлами проекта
+build assets/
+build/
