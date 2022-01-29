@@ -1,15 +1,36 @@
 -
     const headerLinksList = [
         {
-            title: '',
+            label: 'О нас',
+            href: '#',
+        },
+        {
+            label: 'Услуги',
+            href: '#',
+        },
+        {
+            label: 'Проекты',
+            href: '#',
+        },
+        {
+            label: 'Команда',
+            href: '#',
+        },
+        {
+            label: 'Вакансии',
+            href: '#',
+        },
+        {
+            label: 'Контакты',
             href: '#',
         },
     ]
 
 mixin headerLinksList
-    ul.header__links
-        each link, idx  in headerLinksList
-            li.header__link-item: a.header__link(href=link.href title=link.title data-uk-scroll)= link.title
+    nav.header__navigation
+        ul.header__links
+            each link, idx  in headerLinksList
+                li.header__link-item: a.header__link(href=link.href title=link.label data-uk-scroll)= link.label
 
 
 mixin menu
@@ -33,6 +54,12 @@ mixin Header
 
 +Header.header
     .container 
-        .header__row 
+        .header__row
+            .header__logo: +Logo
+
             +menu
                 +headerLinksList
+
+            +headerLinksList
+
+            +Button.header__callback-button(href=phoneLink tag="a" outline primary)= phoneNumber

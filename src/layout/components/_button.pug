@@ -1,0 +1,13 @@
+mixin Button
+	-
+		const { tag, outline, primary, secondary } = Component(attributes, {
+			tag: { type: String, default: 'button' },
+			outline: { type: Boolean, default: false },
+			primary: { type: Boolean, default: false },
+			secondary: { type: Boolean, default: false },
+		})
+
+		const solid = !outline;
+
+	#{tag}.button(class={'button--primary': primary, 'button--secondary': secondary, 'button--outline': outline, 'button--solid': solid})&attributes(attributes)
+		block 

@@ -1,0 +1,40 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $text-headings;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    font-weight: 600;
+}
+
+.s1 {
+    padding-top: 15.75rem;
+    padding-bottom: 8.8125rem;
+
+    &__bg {
+        @include bg-ibg(white);
+    }
+
+    &__heading {
+        font-size: 4.5rem;
+        line-height: 1;
+    }
+
+    &__subtitle {
+        max-width: 34.125rem;
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+
+    &__target-button {
+        width: 23.625rem;
+        line-height: 6.25rem;
+        font-weight: 600;
+        font-size: 1.125rem;
+
+        margin-top: 9.3125rem;
+    }
+}

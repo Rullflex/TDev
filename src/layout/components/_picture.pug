@@ -2,7 +2,6 @@ mixin picture(type = 'png' | 'jpg' | 'svg', imageName = String, dimentions = Str
 	- imageName = images + imageName
 	+picture-constructor(type, imagePlaceholder, imageName, dimentions, retinaDimentions, true, false)&attributes(attributes)
 
-
 mixin picture-min(type = 'png' | 'jpg' | 'svg', imageName = String, dimentions = String(""), retinaDimentions = String(""))
 	- imageName = images + imageName
 	+picture-constructor(type, `${imageName}-min`, imageName, dimentions, retinaDimentions, true, true)&attributes(attributes).lazymin

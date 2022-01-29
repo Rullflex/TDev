@@ -1,7 +1,16 @@
 extends layout/_layout
 
 prepend head
-	title Title your page
-	meta(name="description" content="Описание страницы")
+	title Цифровизация девелопмента
+	meta(name="description" content="Помогаем девелоперам оптимизировать и автоматизировать бизнес-процессы с помощью современных IT-решений")
 
 block content
+	section.s1
+		.s1__bg: +picture-min(jpg, 's1-bg', 'l')
+
+		.container
+			h1.s1__heading #[span.text-primary Цифровизация] девелопмента
+
+			p.s1__subtitle Помогаем девелоперам оптимизировать и автоматизировать бизнес-процессы с помощью современных IT-решений
+
+			+Button.s1__target-button(primary type="button") Оставить заявку

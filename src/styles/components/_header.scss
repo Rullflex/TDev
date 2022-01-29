@@ -1,0 +1,56 @@
+.header {
+    padding: 2.4375rem 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 6.25rem;
+
+        svg {
+            width: 100%;
+        }
+    }
+
+    &__callback-button {
+        width: 10.25rem;
+        line-height: 2.75rem;
+    }
+
+    &__navigation {
+    }
+
+    &__links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__link-item {
+    }
+
+    &__link {
+        padding: 0.25rem 0.375rem;
+
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: $text-dark;
+        text-transform: uppercase;
+
+        transition: $transition--hover;
+
+        &:hover {
+            color: lighten($color: $primary, $amount: 0.9);
+        }
+
+        &.active {
+            color: $primary;
+        }
+    }
+}

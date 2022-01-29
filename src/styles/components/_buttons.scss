@@ -1,4 +1,6 @@
-.btn {
+.button {
+    $self: &;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +14,7 @@
     font: inherit;
     color: inherit;
     text-transform: none;
-    -webkit-appearance: none;
+    appearance: none;
     border-radius: 0;
     vertical-align: middle;
     text-align: center;
@@ -37,5 +39,32 @@
 
     &:focus-visible {
         // фокус через клавиатуру
+    }
+
+    &--primary {
+        --buttonAccentColor: #{$primary};
+    }
+
+    &--secondary {
+        --buttonAccentColor: #{$dark};
+    }
+
+    &--solid {
+        background: var(--buttonAccentColor);
+        color: white;
+    }
+
+    &--outline {
+        border: 0.0625rem solid var(--buttonAccentColor);
+        color: var(--buttonAccentColor);
+
+        font-weight: 500;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+
+        &:hover {
+            background: var(--buttonAccentColor);
+            color: white;
+        }
     }
 }
