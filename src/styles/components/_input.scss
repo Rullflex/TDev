@@ -4,7 +4,7 @@
     display: block;
     border-width: 0.0625rem;
     border-style: solid;
-    border-color: #d4d9e8;
+    border-color: $border-cadet;
     transition: $transition--normal;
 
     &:focus {

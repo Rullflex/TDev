@@ -426,3 +426,33 @@ h2 {
         transition: inherit;
     }
 }
+
+.s7 {
+    padding-top: 9rem;
+    padding-bottom: 6.25rem;
+
+    &__heading {
+        font-size: 7.87rem;
+        text-align: center;
+        position: relative;
+        left: -0.8rem;
+        z-index: 2;
+    }
+
+    &__team-image {
+        @include ibg;
+        height: 43.8125rem;
+        margin-top: -1.6rem;
+    }
+
+    &__figcaption {
+        height: 5.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 0.0625rem solid $border-cadet;
+
+        color: #0d0d0d;
+    }
+}
