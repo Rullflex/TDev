@@ -53,3 +53,17 @@ block content
 				+StarSvg.s3__preview-star
 				.s3__preview-image: +picture(jpg, 's3-i1', 'l')
 				.s3__preview-text Мы предлагаем разработку современных сайтов, которые помогут вывести бизнес на новый уровень
+
+	section.s4 
+		.container 
+			h2.first-primary.s4__heading Реализованные проекты
+
+			+Slider.s4__slider(finite)
+				+SliderItems(overflowVisible=true)
+					- for(let i = 0; i < 5; i++)
+						+SliderItem.s4__slider-item
+							.s4__slider-image-container: +picture-min(png, 's4-i1', 'l')
+							p.s4__slider-item-title Мобильное#[br] приложение «Талан»
+							a(href="#").s4__slider-item-link 
+								span Перейти в кейс 
+								+ArrowRightSvg

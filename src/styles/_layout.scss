@@ -76,7 +76,7 @@ h2 {
         padding-top: 1.125rem;
         height: 17.5rem;
         position: relative;
-        border: 0.0625rem solid #e2e2e2;
+        border: 0.0625rem solid $border-gray;
         border-top: none;
 
         &--1 {
@@ -225,5 +225,77 @@ h2 {
         position: absolute;
         bottom: 0;
         left: calc(100% + 1.5rem);
+    }
+}
+
+.s4 {
+    padding-top: 7.9375rem;
+    padding-bottom: 6.25rem;
+
+    &__heading {
+        margin-bottom: 4.75rem;
+    }
+
+    &__slider {
+    }
+
+    &__slider-item {
+        padding: 1.25rem;
+        width: 33.65rem;
+        height: 34.225rem;
+        border: 0.0625rem solid $border-gray;
+
+        &:not(:last-child) {
+            margin-right: 2.5rem;
+        }
+
+        &:active {
+            cursor: grabbing;
+        }
+    }
+
+    &__slider-image-container {
+        height: 25.375rem;
+        background: #f4f4f3;
+        position: relative;
+
+        margin-bottom: 1.5rem;
+
+        img {
+            width: 18.25rem;
+            position: absolute;
+            bottom: 0;
+            left: 7.375rem;
+        }
+    }
+
+    &__slider-item-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+        color: $text-headings;
+        margin-bottom: 2rem;
+    }
+
+    &__slider-item-link {
+        font-weight: 500;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+        text-transform: uppercase;
+        color: $text-gray;
+
+        transition: $transition--hover;
+
+        svg {
+            width: 1.5rem;
+            vertical-align: baseline;
+            margin-left: 0.5rem;
+        }
+
+        &:hover {
+            color: $primary;
+        }
     }
 }

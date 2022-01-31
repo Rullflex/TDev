@@ -43,7 +43,7 @@ mixin SliderItems
 			},
 		})
 
-	.slider__container.uk-slider-container(class = overflowVisible && 'slider__container--visible')
+	.slider__container.uk-slider-container(class={'slider__container--visible': overflowVisible})
 		ul.slider-items.uk-slider-items&attributes(attributes)
 			block
 
