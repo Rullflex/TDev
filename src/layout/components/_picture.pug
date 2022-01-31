@@ -4,14 +4,14 @@ mixin picture(type = 'png' | 'jpg' | 'svg', imageName = String, dimentions = Str
 
 mixin picture-min(type = 'png' | 'jpg' | 'svg', imageName = String, dimentions = String(""), retinaDimentions = String(""))
 	- imageName = images + imageName
-	+picture-constructor(type, `${imageName}-min`, imageName, dimentions, retinaDimentions, true, true)&attributes(attributes).lazymin
+	+picture-constructor(type, imageName, imageName, dimentions, retinaDimentions, true, true)&attributes(attributes).lazymin
 
 
 mixin picture-constructor(imageExtension, imageSrc = imagePlaceholder, imageDataSrc, breakpointsLetters = '', retinaLetters = '', includeWebp = true, usePreloadImage = false)
 	picture
 		-
 			function getImageSrc(dimention) {
-				return (usePreloadImage && imageSrc !== imagePlaceholder) ? `${imageSrc}${dimention ? `-${dimention}` : ''}.${imageExtension}` : imagePlaceholder
+				return (usePreloadImage && imageSrc !== imagePlaceholder) ? `${imageSrc}${dimention ? `-${dimention}` : ''}-min.${imageExtension}` : imagePlaceholder
 			}			
 
 

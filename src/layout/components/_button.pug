@@ -7,7 +7,11 @@ mixin Button
 			secondary: { type: Boolean, default: false },
 		})
 
-		const solid = !outline;
+		const classes = {
+			'button--primary': primary, 
+			'button--secondary': secondary, 
+			'button--outline': outline, 
+		}
 
-	#{tag}.button(class={'button--primary': primary, 'button--secondary': secondary, 'button--outline': outline, 'button--solid': solid})&attributes(attributes)
+	#{tag}.button(class=classes)&attributes(attributes)
 		block 

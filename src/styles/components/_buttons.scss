@@ -1,3 +1,17 @@
+@mixin outline($accent) {
+    background: transparent;
+    border: 0.0625rem solid $accent;
+    color: $accent;
+    fill: $accent;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+        &:hover {
+            background: $accent;
+            color: white;
+        }
+    }
+}
+
 .button {
     $self: &;
 
@@ -42,29 +56,28 @@
     }
 
     &--primary {
-        --buttonAccentColor: #{$primary};
+        background: $primary;
+        color: white;
+        fill: white;
     }
 
     &--secondary {
-        --buttonAccentColor: #{$dark};
-    }
-
-    &--solid {
-        background: var(--buttonAccentColor);
+        background: $dark;
         color: white;
+        fill: white;
     }
 
     &--outline {
-        border: 0.0625rem solid var(--buttonAccentColor);
-        color: var(--buttonAccentColor);
+        &#{$self}--primary {
+            @include outline($primary);
+        }
+
+        &#{$self}--secondary {
+            @include outline($dark);
+        }
 
         font-weight: 500;
         font-size: 0.75rem;
         text-transform: uppercase;
-
-        &:hover {
-            background: var(--buttonAccentColor);
-            color: white;
-        }
     }
 }
