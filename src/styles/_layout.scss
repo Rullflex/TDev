@@ -299,3 +299,53 @@ h2 {
         }
     }
 }
+
+.s5 {
+    padding-top: 2.3125rem;
+    padding-bottom: 9.375rem;
+
+    &__star-image {
+        width: 39.3125rem;
+        position: absolute;
+        right: 1.5rem;
+        top: 0;
+    }
+
+    &__float-title {
+        font-size: 1.125rem;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+        color: $text-gray;
+        transform: rotate(90deg);
+        position: absolute;
+        top: 19.0625rem;
+        right: -3.875rem;
+    }
+
+    &__heading {
+        width: 35.625rem;
+        padding-top: 12.575rem;
+        line-height: 1.6;
+        margin-bottom: 4.25rem;
+    }
+
+    &__form {
+        display: flex;
+    }
+
+    &__form-input {
+        width: 18.75rem;
+        font-size: 1.125rem;
+        line-height: 6rem;
+        padding-left: 1.75rem;
+
+        &:not(.s5__form-input--last) {
+            border-right: none;
+        }
+    }
+
+    &__submit-button {
+        line-height: 6rem;
+        width: 18.75rem;
+    }
+}

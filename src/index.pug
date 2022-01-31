@@ -59,7 +59,7 @@ block content
 			h2.first-primary.s4__heading Реализованные проекты
 
 			+Slider.s4__slider(finite)
-				+SliderItems(overflowVisible=true)
+				+SliderItems()(overflowVisible)
 					- for(let i = 0; i < 5; i++)
 						+SliderItem.s4__slider-item
 							.s4__slider-image-container: +picture-min(png, 's4-i1', 'l')
@@ -67,3 +67,18 @@ block content
 							a(href="#").s4__slider-item-link 
 								span Перейти в кейс 
 								+ArrowRightSvg
+
+	section.s5 
+		.container 
+			+picture-min(jpg, 's5-star').s5__star-image
+			p.s5__float-title оставьте заявку
+			h2.s5__heading Хотите провести #[span.text-primary цифровизацию] бизнеса, но не знаете с чего начать?
+
+			form.form.s5__form
+				.input-wrap 
+					input.input.s5__form-input(type="text" name="name" placeholder="Введите имя")
+				.input-wrap 
+					input.input.phone.s5__form-input(type="tel" name="phone" placeholder="Введите номер телефона")
+				.input-wrap 
+					input.input.s5__form-input.s5__form-input--last(type="email" name="email" placeholder="Введите e-mail")
+				+Button.s5__submit-button(primary type="submit") Оставить заявку

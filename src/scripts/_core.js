@@ -299,7 +299,7 @@ export const form = {
                 message: '^The passwords does not match',
             },
         },
-        'Имя': {
+        'name': {
             // You need to pick a username too
             presence: true,
             // And it must be between 3 and 20 characters long
@@ -348,7 +348,7 @@ export const form = {
                 greaterThanOrEqualTo: 0,
             },
         },
-        'Телефон': {
+        'phone': {
             presence: true,
             isMaskComplete: true,
         },
