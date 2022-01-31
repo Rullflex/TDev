@@ -349,3 +349,80 @@ h2 {
         width: 18.75rem;
     }
 }
+
+.s6 {
+    padding-top: 9.5rem;
+    padding-bottom: 9rem;
+
+    &__heading {
+        margin-bottom: 3.75rem;
+    }
+
+    &__step-item {
+        padding: 1.875rem 1.5rem;
+        height: fit-content;
+        border-bottom: 0.0625rem solid $border-gray;
+        position: relative;
+        transition: $transition--normal;
+
+        &:hover {
+            background: $primary;
+            color: white;
+
+            .s6__step-image {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .s6__step-title {
+                color: white;
+            }
+
+            .s6__step-descr {
+                margin: 1.875rem 0 0 auto;
+            }
+        }
+    }
+
+    &__step-image {
+        @include ibg;
+        @include center-item-y;
+        left: 8.125rem;
+        width: 11.75rem;
+        height: 11.75rem;
+        border-radius: 50%;
+        visibility: hidden;
+        opacity: 0;
+        transition: inherit;
+    }
+
+    &__step-counter {
+        font-weight: 600;
+        font-size: 1.125rem;
+
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+    }
+
+    &__step-title {
+        max-width: 40.5625rem;
+        font-weight: 500;
+        font-size: 2rem;
+        text-align: right;
+        text-transform: uppercase;
+        color: $text-gray;
+        white-space: pre-line;
+        margin: 0 0 0 auto;
+        transition: inherit;
+    }
+
+    &__step-descr {
+        text-align: right;
+        max-width: 33rem;
+        margin: 0 0 0 auto;
+        overflow: hidden;
+        color: white;
+        transition: inherit;
+    }
+}

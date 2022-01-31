@@ -9,6 +9,25 @@ ready(function () {
     // FORM
     form.init('form');
 
+    document.querySelectorAll('.s6__step-descr').forEach((el) => {
+        el.dataset.height = el.offsetHeight;
+        el.style.height = '0';
+    });
+
+    document.querySelectorAll('.s6__step-item').forEach((el) => {
+        el.addEventListener('mouseenter', (event) => {
+            const innerDescr = el.querySelector('.s6__step-descr');
+            innerDescr.style.cssText = `height: ${innerDescr.dataset.height}px`;
+        });
+    });
+
+    document.querySelectorAll('.s6__step-item').forEach((el) => {
+        el.addEventListener('mouseleave', (event) => {
+            const innerDescr = el.querySelector('.s6__step-descr');
+            innerDescr.style.cssText = `height: 0`;
+        });
+    });
+
     // app.letListClickActive(document.querySelector(`ul.list`))
     // app.dynamicVideo()
     // app.videoSpy(`#video .popup__body`, 'fmT2FFVuWDA')
