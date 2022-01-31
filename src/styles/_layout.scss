@@ -456,3 +456,60 @@ h2 {
         color: #0d0d0d;
     }
 }
+
+.s8 {
+    padding-top: 5.9625rem;
+    padding-bottom: 6.25rem;
+
+    &__heading {
+        margin-bottom: 3.75rem;
+    }
+
+    &__job-list {
+        border: 0.0625rem solid $border-gray;
+    }
+
+    &__list-item {
+        padding: 2.3rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:not(:last-child) {
+            border-bottom: 0.0625rem solid $border-gray;
+        }
+    }
+
+    &__job-position {
+        color: $text-headings;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__job-salary {
+        font-weight: 500;
+        font-size: 1.125rem;
+        color: $text-gray;
+    }
+
+    &__item-button {
+        width: 23.9375rem;
+        line-height: 6.25rem;
+    }
+
+    &__link-show-all {
+        display: inline-block;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1.1;
+        letter-spacing: 0.005em;
+        color: $primary;
+        margin-top: 3.75rem;
+
+        svg {
+            width: 1.5rem;
+            vertical-align: baseline;
+        }
+    }
+}

@@ -142,3 +142,19 @@ block content
 			figure.s7__figure
 				.s7__team-image: +picture-min(jpg, 's7-team', 'l')
 				figcaption.s7__figcaption В нашей команде собраны лучшие IT-специалисты, способные решать самые сложные бизнес-задачи
+
+	section.s8 
+		.container 
+			h2.s8__heading Вакансии в #[span.text-primary T.Dev]
+
+			ul.s8__job-list
+				- for(let i = 0; i < 3; i++)
+					li.s8__list-item
+						div 
+							p.s8__job-position Front-end разработчик
+							p.s8__job-salary от 80 000 ₽ за месяц
+						+Button.s8__item-button(primary type="button") Откликнуться
+
+			a(href="#").s8__link-show-all 
+				span Смотреть все вакансии
+				+ArrowRightSvg

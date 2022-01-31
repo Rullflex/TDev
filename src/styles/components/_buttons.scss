@@ -12,6 +12,29 @@
     }
 }
 
+@mixin solid($accent) {
+    background: $accent;
+    color: white;
+    fill: white;
+
+    &::after {
+        content: '';
+        width: 0;
+        height: 0.75rem;
+        background: center / contain no-repeat url('/images/icons/arrow-right.svg');
+        transition: $transition--hover;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+        &:hover {
+            &::after {
+                width: 1.5rem;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+
 .button {
     $self: &;
 
@@ -56,18 +79,24 @@
     }
 
     &--primary {
-        background: $primary;
-        color: white;
-        fill: white;
-
-        font-weight: 600;
-        font-size: 1.125rem;
+        color: $primary;
     }
 
     &--secondary {
-        background: $dark;
-        color: white;
-        fill: white;
+        color: $dark;
+    }
+
+    &--solid {
+        &#{$self}--primary {
+            @include solid($primary);
+        }
+
+        &#{$self}--secondary {
+            @include solid($dark);
+        }
+
+        font-weight: 600;
+        font-size: 1.125rem;
     }
 
     &--outline {
@@ -81,6 +110,5 @@
 
         font-weight: 500;
         font-size: 0.75rem;
-        text-transform: uppercase;
     }
 }
