@@ -1,8 +1,5 @@
 $relative-link-to-modules: './fonts';
 
-// 300
-@include font-face('Montserrat', 'Montserrat-Light', '300', 'normal', $relative-link-to-modules);
-
 // 400 - normal
 @include font-face('Montserrat', 'Montserrat-Regular', '400', 'normal', $relative-link-to-modules);
 

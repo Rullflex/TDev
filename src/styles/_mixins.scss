@@ -46,17 +46,11 @@
 
     @if $font-size == $font-size--large {
         line-height: $line-height--large;
-    }
-
-    @else if $font-size == $font-size--normal {
+    } @else if $font-size == $font-size--normal {
         line-height: $line-height--normal;
-    }
-
-    @else if $font-size == $font-size--small {
+    } @else if $font-size == $font-size--small {
         line-height: $line-height--small;
-    }
-
-    @else {
+    } @else {
         line-height: floor($font-size * $line-height--base);
     }
 }
@@ -140,8 +134,7 @@
 //@include beveled-corners(#58a, 15px, 5px); (цвет + 1-4 значения)
 @mixin beveled-corners($bg, $tl: 0, $tr: $tl, $br: $tl, $bl: $tr) {
     background: $bg;
-    background:
-        linear-gradient(135deg, transparent $tl, $bg 0) top left,
+    background: linear-gradient(135deg, transparent $tl, $bg 0) top left,
         linear-gradient(225deg, transparent $tr, $bg 0) top right,
         linear-gradient(-45deg, transparent $br, $bg 0) bottom right,
         linear-gradient(45deg, transparent $bl, $bg 0) bottom left;
@@ -179,10 +172,46 @@
     $ix: #{$ix + px};
     $iy: #{$iy + px};
 
-    -webkit-clip-path:
- polygon($ar 0, $ow 0, 100% $ar, 100% $oh, $ow 100%, $ar 100%, 0% $oh, $bw $ih, $bar $iy, $iw $iy, $ix $ih, $ix $bar, $iw $bw, $bar $bw, $bw $bar, $bw $ih, 0% $oh, 0% $ar);
-    clip-path:
- polygon($ar 0, $ow 0, 100% $ar, 100% $oh, $ow 100%, $ar 100%, 0% $oh, $bw $ih, $bar $iy, $iw $iy, $ix $ih, $ix $bar, $iw $bw, $bar $bw, $bw $bar, $bw $ih, 0% $oh, 0% $ar);
+    -webkit-clip-path: polygon(
+        $ar 0,
+        $ow 0,
+        100% $ar,
+        100% $oh,
+        $ow 100%,
+        $ar 100%,
+        0% $oh,
+        $bw $ih,
+        $bar $iy,
+        $iw $iy,
+        $ix $ih,
+        $ix $bar,
+        $iw $bw,
+        $bar $bw,
+        $bw $bar,
+        $bw $ih,
+        0% $oh,
+        0% $ar
+    );
+    clip-path: polygon(
+        $ar 0,
+        $ow 0,
+        100% $ar,
+        100% $oh,
+        $ow 100%,
+        $ar 100%,
+        0% $oh,
+        $bw $ih,
+        $bar $iy,
+        $iw $iy,
+        $ix $ih,
+        $ix $bar,
+        $iw $bw,
+        $bar $bw,
+        $bw $bar,
+        $bw $ih,
+        0% $oh,
+        0% $ar
+    );
 }
 
 @mixin font-face($font_name, $file_name, $weight, $style, $path: null) {
@@ -198,7 +227,7 @@
 @mixin hover-bold($bold: bold, $fz: null) {
     display: inline-flex;
     flex-direction: column;
-    // align-items: center;
+    align-items: center;
 
     &::after {
         content: attr(data-text);
@@ -447,9 +476,7 @@
         @media (min-width: $min) {
             @content;
         }
-    }
-
-    @else {
+    } @else {
         @content;
     }
 }
@@ -463,9 +490,7 @@
         @media (max-width: $max) {
             @content;
         }
-    }
-
-    @else {
+    } @else {
         @content;
     }
 }
@@ -480,15 +505,11 @@
         @media (min-width: $min) and (max-width: $max) {
             @content;
         }
-    }
-
-    @else if $max == null {
+    } @else if $max == null {
         @include media-breakpoint-up($lower, $breakpoints) {
             @content;
         }
-    }
-
-    @else if $min == null {
+    } @else if $min == null {
         @include media-breakpoint-down($upper, $breakpoints) {
             @content;
         }
@@ -506,15 +527,11 @@
         @media (min-width: $min) and (max-width: $max) {
             @content;
         }
-    }
-
-    @else if $max == null {
+    } @else if $max == null {
         @include media-breakpoint-up($name, $breakpoints) {
             @content;
         }
-    }
-
-    @else if $min == null {
+    } @else if $min == null {
         @include media-breakpoint-down($name, $breakpoints) {
             @content;
         }
@@ -530,13 +547,9 @@
     @each $key, $num in $map {
         @if $prev-num == null or unit($num) == '%' or unit($prev-num) == '%' {
             // Do nothing
-        }
-
-        @else if not comparable($prev-num, $num) {
+        } @else if not comparable($prev-num, $num) {
             @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
-        }
-
-        @else if $prev-num >= $num {
+        } @else if $prev-num >= $num {
             @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
         }
         $prev-key: $key;

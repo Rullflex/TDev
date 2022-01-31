@@ -37,8 +37,6 @@ h2 {
     &__target-button {
         width: 23.625rem;
         line-height: 6.25rem;
-        font-weight: 600;
-        font-size: 1.125rem;
 
         margin-top: 9.3125rem;
     }
@@ -47,4 +45,185 @@ h2 {
 .s2 {
     padding-top: 16.1875rem;
     padding-bottom: 7.5rem;
+
+    &__heading {
+        margin-bottom: 3.75rem;
+    }
+
+    &__hero-image {
+        width: 100%;
+        height: 33.8125rem;
+
+        @include ibg(rgb(240, 236, 235));
+
+        img {
+            transition: 1s ease-in-out;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.15);
+            }
+        }
+    }
+
+    &__list {
+        width: 100%;
+        display: flex;
+    }
+
+    &__list-item {
+        padding-top: 1.125rem;
+        height: 17.5rem;
+        position: relative;
+        border: 0.0625rem solid #e2e2e2;
+        border-top: none;
+
+        &--1 {
+            padding-right: 3.875rem;
+            padding-left: 2.5rem;
+            width: 23.5625rem;
+        }
+
+        &--2 {
+            padding-right: 3.875rem;
+            padding-left: 3.875rem;
+            width: 26.1875rem;
+            border-left: none;
+        }
+
+        &--3 {
+            padding-right: 3.75rem;
+            padding-left: 3.875rem;
+            width: 25.25rem;
+            border-left: none;
+        }
+
+        &_number {
+            font-weight: 500;
+            font-size: 3rem;
+            color: $primary;
+        }
+
+        &_text {
+            font-size: 1.25rem;
+        }
+
+        &_button {
+            width: calc(100% + 2px);
+            line-height: 6.25rem;
+            position: absolute;
+            right: -1px;
+            bottom: -1px;
+        }
+    }
+}
+
+.s3 {
+    padding-top: 7.1875rem;
+    padding-bottom: 8.125rem;
+
+    &__heading {
+        position: absolute;
+        left: -4.1875rem;
+        top: 4.875rem;
+        transform: rotate(-90deg);
+    }
+
+    &__breadcrumbs {
+        width: 52.775rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    &__breadcrumb {
+        color: $text-gray;
+        font-weight: 500;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+
+        &--has-slash {
+            &::after {
+                content: '/';
+                padding: 0 2.0625rem;
+            }
+        }
+
+        &--slash-narrow {
+            &::after {
+                padding: 0 1.75rem;
+            }
+        }
+
+        span {
+            // @include hover-bold(600, 1.5rem);
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(0.49, 0.44, 0.43, 1);
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 0.125rem;
+                background: currentColor;
+                top: 90%;
+                left: 0;
+                pointer-events: none;
+
+                transform-origin: 100% 50%;
+                transform: scale3d(0, 1, 1);
+                transition: transform 0.3s cubic-bezier(0.49, 0.44, 0.43, 1);
+            }
+
+            &:hover {
+                // font-weight: 600;
+                color: $primary;
+
+                &::before {
+                    transform-origin: 0% 50%;
+                    transform: scale3d(1, 1, 1);
+                }
+            }
+        }
+    }
+
+    &__preview-image-wrap {
+        width: 31.25rem;
+        height: 25.375rem;
+
+        position: relative;
+        margin: -1rem auto 0;
+
+        &:hover {
+            .s3__preview-image {
+                height: 100%;
+            }
+        }
+    }
+
+    &__preview-star {
+        width: 13.75rem;
+        @include center-item;
+    }
+
+    &__preview-image {
+        @include ibg(rgb(240, 236, 235));
+        width: 100%;
+        height: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: $transition--normal;
+    }
+
+    &__preview-text {
+        width: 10.5rem;
+        position: absolute;
+        bottom: 0;
+        left: calc(100% + 1.5rem);
+    }
 }
