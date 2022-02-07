@@ -15,7 +15,7 @@ $muted: #c5c5c5;
 $primary: #18a452;
 $secondary: $dark;
 
-$success: #60d138;
+$success: $primary;
 $danger: #ff7777;
 $warning: #ff8a00;
 $info: #0d6efd;
@@ -83,11 +83,11 @@ $grid-breakpoints: (
 $container-max-widths: (
     sm: 420px,
     md: 480px,
-    lg: 1240px,
+    lg: 1236px,
 );
 
 $grid-columns: 12;
-$grid-gutter-width: 2.5rem;
+$grid-gutter-width: 2.25rem;
 $grid-row-columns: 6;
 
 @include _assert-ascending($grid-breakpoints, '$grid-breakpoints');

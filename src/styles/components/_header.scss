@@ -1,9 +1,23 @@
 .header {
-    padding: 2.4375rem 0;
-    position: absolute;
-    left: 0;
-    right: 0;
+    padding: 1.125rem 0;
     z-index: 100;
+
+    @include media('max-lg') {
+        background: rgba(255, 255, 255, 0.94);
+    }
+
+    @include media('min-lg') {
+        padding: 2.4375rem 0;
+
+        &.uk-active {
+            background: rgba(255, 255, 255, 0.94);
+            padding: 1rem 0;
+
+            .header__logo {
+                width: 4.5rem;
+            }
+        }
+    }
 
     &__row {
         display: flex;
@@ -12,16 +26,26 @@
     }
 
     &__logo {
-        width: 6.25rem;
+        width: 3.3125rem;
 
         svg {
             width: 100%;
         }
+
+        @include media('min-lg') {
+            width: 6.25rem;
+        }
     }
 
     &__callback-button {
-        width: 10.25rem;
-        line-height: 2.75rem;
+        @include media('max-lg') {
+            display: none;
+        }
+
+        @include media('min-lg') {
+            width: 10.25rem;
+            line-height: 2.75rem;
+        }
     }
 
     &__navigation {
@@ -31,6 +55,10 @@
     &__links {
         display: flex;
         justify-content: space-between;
+
+        @include media('max-lg') {
+            flex-direction: column;
+        }
     }
 
     &__link-item {

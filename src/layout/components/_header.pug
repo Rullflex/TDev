@@ -2,32 +2,32 @@
     const headerLinksList = [
         {
             label: 'О нас',
-            href: '#',
+            href: '#section-about',
         },
         {
             label: 'Услуги',
-            href: '#',
+            href: '#section-services',
         },
         {
             label: 'Проекты',
-            href: '#',
+            href: '#section-projects',
         },
         {
             label: 'Команда',
-            href: '#',
+            href: '#section-team',
         },
         {
             label: 'Вакансии',
-            href: '#',
+            href: '#section-vacancies',
         },
         {
             label: 'Контакты',
-            href: '#',
+            href: '#section-contacts',
         },
     ]
 
 mixin headerLinksList
-    nav.header__navigation
+    nav.header__navigation&attributes(attributes)
         ul.header__links
             each link, idx  in headerLinksList
                 li.header__link-item: a.header__link(href=link.href title=link.label data-uk-scroll)= link.label
@@ -52,7 +52,7 @@ mixin Header
 
 //- Template
 
-+Header.header
++Header.header(sticky)
     .container 
         .header__row
             .header__logo: +LogoSvg
@@ -60,6 +60,6 @@ mixin Header
             +menu
                 +headerLinksList
 
-            +headerLinksList
+            +headerLinksList.d-none.d-lg-block
 
             +Button.header__callback-button(href=phoneLink tag="a" outline primary)= phoneNumber

@@ -4,7 +4,7 @@
     }
 
     &-icon {
-        width: 1.6875rem;
+        width: 1.5rem;
         display: block;
         position: relative;
 
@@ -12,7 +12,8 @@
             height: 0.1875rem;
             width: 100%;
             display: block;
-            background: $secondary;
+            border-radius: 1.0625rem;
+            background: #18191f;
             transition: $transition--fast;
 
             &:not(:nth-child(3)) {
@@ -49,7 +50,7 @@
         display: none;
         min-width: 200px;
         padding: 15px;
-        background: #f8f8f8;
+        background: rgba(255, 255, 255, 0.94);
         color: #666666;
         margin: 0;
     }

@@ -14,14 +14,14 @@
     &-wrap {
         &.has-error {
             #{$self} {
-                border-color: $danger !important;
+                // border-color: $danger !important;
                 color: $danger;
             }
         }
 
         &.has-success {
             #{$self} {
-                border-color: $success !important;
+                // border-color: $success !important;
                 color: $success;
             }
         }

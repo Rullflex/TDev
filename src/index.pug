@@ -6,34 +6,42 @@ prepend head
 
 block content
 	section.s1
-		.s1__bg: +picture-min(jpg, 's1-bg', 'l')
+		.s1__bg: +picture-min(jpg, 's1-bg', 'sl')
 
 		.container
 			h1.s1__heading #[span.text-primary Цифровизация] девелопмента
 
-			p.s1__subtitle Помогаем девелоперам оптимизировать и автоматизировать бизнес-процессы с помощью современных IT-решений
+			p.s1__subtitle Помогаем девелоперам оптимизировать и&nbsp;автоматизировать#[br] бизнес-процессы с помощью современных IT-решений
 
 			+Button.s1__target-button(primary type="button") Оставить заявку
 
-	section.s2 
+	section#section-about.s2
 		.container 
 			h2.first-primary.s2__heading О компании
 
-			.s2__hero-image: +picture-min(jpg, 's2-hero', 'l')
+			.s2__list-wrapper
+				.s2__hero-image: +picture-min(jpg, 's2-hero', 'l')
 
-			ul.s2__list
-				li.s2__list-item.s2__list-item--1
-					.s2__list-item_number 8
-					.s2__list-item_text лет внедряем цифровые решения в девелопменте
-				li.s2__list-item.s2__list-item--2
-					.s2__list-item_number 79
-					.s2__list-item_text млрд ₽ помогли заработать девелоперам за все время
-				li.s2__list-item.s2__list-item--3
-					.s2__list-item_number 20
-					.s2__list-item_text лет в строительной сфере на федеральном уровне
-					+Button.s2__list-item_button(primary type="button") Заказать консультацию
+				ul.s2__list
+					li.s2__list-item.s2__list-item--1
+						.s2__list-item_number 8
+						.s2__list-item_text лет внедряем цифровые решения в&nbsp;девелопменте
+					li.s2__list-item.s2__list-item--2
+						.s2__list-item_number 79
+						.s2__list-item_text млрд ₽ помогли заработать девелоперам за все время
+					li.s2__list-item.s2__list-item--3
+						.s2__list-item_number 20
+						.s2__list-item_text лет в строительной сфере на&nbsp;федеральном уровне
+					li.s2__list-item.s2__list-item--4
+						.s2__list-item_number 48
+						.s2__list-item_text сотрудников работают над проектами клиентов
+					li.s2__list-item.s2__list-item--5
+						.s2__list-item_number 45 000
+						.s2__list-item_text трудочасов потратили на&nbsp;реализовацию проектов
 
-	section.s3 
+				+Button.s2__button(primary type="button") Заказать консультацию
+
+	section#section-services.s3 
 		.container 
 			h2.first-primary.s3__heading Услуги
 
@@ -54,19 +62,23 @@ block content
 				.s3__preview-image: +picture(jpg, 's3-i1', 'l')
 				.s3__preview-text Мы предлагаем разработку современных сайтов, которые помогут вывести бизнес на новый уровень
 
-	section.s4 
+	section#section-projects.s4 
 		.container 
-			h2.first-primary.s4__heading Реализованные проекты
+			h2.first-primary.s4__heading Реализованные#[br] #[span.text-primary проекты]
 
-			+Slider.s4__slider(finite)
+			+Slider.s4__slider(finite onlyHTML)
 				+SliderItems()(overflowVisible)
-					- for(let i = 0; i < 5; i++)
+					- for(let i = 0; i < 4; i++)
 						+SliderItem.s4__slider-item
 							.s4__slider-image-container: +picture-min(png, 's4-i1', 'l')
 							p.s4__slider-item-title Мобильное#[br] приложение «Талан»
 							a(href="#").s4__slider-item-link 
 								span Перейти в кейс 
 								+ArrowRightSvg
+
+			a.s4__show-all-link(href="#") 
+				| Смотреть все проекты
+				+ArrowRightSvg
 
 	section.s5 
 		.container 
@@ -136,14 +148,47 @@ block content
 						p.s6__step-title= title
 						p.s6__step-descr= descr
 
-	section.s7 
+	section.s9 
+		.container
+			h2.s9__heading Ваш бизнес после#[br] внедрения #[span.text-primary цифровизации] 
+
+			ul.s9__list
+				li.s9__list-item
+					+ThinMagnifierSvg('white').s9__list-icon 
+					div.s9__list-text-wrap
+						.s9__list-title Порядок в данных
+						.s9__list-descr Устраняются ошибки ведения CRM, потери лидов#[br] и необходимой информации
+				li.s9__list-item
+					+ThinDollarCircleSvg('white').s9__list-icon 
+					div.s9__list-text-wrap
+						.s9__list-title Рост продаж
+						.s9__list-descr Сокращается цикл сделок и увеличивается#[br] конверсия в продажи
+				li.s9__list-item
+					+ThinDollarCircleTimeSvg('white').s9__list-icon 
+					div.s9__list-text-wrap
+						.s9__list-title Снижение затрат
+						.s9__list-descr Оптимизируются затраты на маркетинг#[br] и строительство
+				li.s9__list-item
+					+ThinClockSvg('white').s9__list-icon 
+					div.s9__list-text-wrap
+						.s9__list-title Экономия времени
+						.s9__list-descr Все бизнес-процессы выстроены в одну систему,#[br] что позволяет грамотно руководить бизнесом
+				li.s9__list-item
+					+ThinDollarCircleTimeSvg('white').s9__list-icon 
+					div.s9__list-text-wrap
+						.s9__list-title Эффективное управление
+						.s9__list-descr Все решения оперативно принимаются на местах#[br] благодаря правильной дистрибуции данных
+
+			+Button.s9__button(primary type="button") Хочу обсудить задачу
+
+	section#section-team.s7 
 		.container 
-			h2.s7__heading #[span.text-primary Наша] команда
+			h2.s7__heading #[span.text-primary Команда] разработки и&nbsp;внедрения цифровых решений
 			figure.s7__figure
 				.s7__team-image: +picture-min(jpg, 's7-team', 'l')
-				figcaption.s7__figcaption В нашей команде собраны лучшие IT-специалисты, способные решать самые сложные бизнес-задачи
+				figcaption.s7__figcaption В нашей команде собраны лучшие#[br]IT-специалисты, способные решать самые сложные бизнес-задачи#[br]в сфере девелопмента
 
-	section.s8 
+	section#section-vacancies.s8 
 		.container 
 			h2.s8__heading Вакансии в #[span.text-primary T.Dev]
 
@@ -158,3 +203,41 @@ block content
 			a(href="#").s8__link-show-all 
 				span Смотреть все вакансии
 				+ArrowRightSvg
+
+	section.s10 
+		.container
+			.s10__content-container
+				.s10__head
+					h2.s10__title Остались #[span.text-primary вопросы?]
+					.s10__subtitle Заказжите консультацию, она поможет сформировать точные требования к развитию цифровых технологий в вашем бизнесе
+
+				form.s10__form
+					.input-wrap 
+						input.input.s10__form-input(type="text" name="name" placeholder="Введите ваше имя")
+					.input-wrap 
+						input.input.phone.s10__form-input(type="tel" name="phone" placeholder="Введите номер телефона")
+					.input-wrap 
+						input.input.s10__form-input(type="email" name="email" placeholder="Введите e-mail")
+					+Button.s10__submit-button(primary type="submit") Заказать консультацию
+
+	section#section-contacts.s11 
+		.container 
+			.s11__content-container
+				.s11__map-image: +picture-min(jpg, 's11-map', 'l')
+
+				.s11__contacts 
+					h2.s11__title Контакты
+
+					.s11__contacts-info-container
+						.s11__contacts-info-block
+							.s11__contacts-info-title Адрес:
+							.s11__contacts-info-item г.Ижевск ул.Адмирала Ушакова д.5
+						.s11__contacts-info-block
+							.s11__contacts-info-title Контакты:
+							a.s11__contacts-info-item(href="tel:+79999999999") +7 999 999 99 99
+							a.s11__contacts-info-item(href="tel:++79998888877") +7 999 888 88 77
+
+					.s11__personal-links 
+						a(href="#") Обработка персональных данных
+						a(href="#") Условия использования
+						a(href="#") Политика конфиденциальности

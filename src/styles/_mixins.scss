@@ -1,3 +1,17 @@
+@mixin media($query) {
+    $list: str-split($query, '-');
+    $direction: nth($list, 1);
+    $breakpoint: map-get($grid-breakpoints, nth($list, 2));
+
+    @if $direction == 'max' {
+        $breakpoint: $breakpoint - 1px;
+    }
+
+    @media (#{$direction}-width: $breakpoint) {
+        @content;
+    }
+}
+
 @mixin ibg($bg-color: rgb(240, 236, 235)) {
     position: relative;
     overflow: hidden;
