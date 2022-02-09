@@ -59,8 +59,9 @@ block content
 
 			.s3__preview-image-wrap
 				+StarSvg.s3__preview-star
-				.s3__preview-image: +picture(jpg, 's3-i1', 'l')
-				.s3__preview-text Мы предлагаем разработку современных сайтов, которые помогут вывести бизнес на новый уровень
+				- for(let i = 1; i <= 10; i++)
+					.s3__preview-image: +picture(jpg, `s3-i${i}`, 'l')
+				.s3__preview-text.d-none Мы предлагаем разработку современных сайтов, которые помогут вывести бизнес на новый уровень
 
 	section#section-projects.s4 
 		.container 

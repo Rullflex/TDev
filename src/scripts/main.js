@@ -1,5 +1,6 @@
 import UIkit from 'uikit';
 import { app, form } from './_core';
+import sectionServicesScript from './_s3';
 
 const { ready, $, $$, play, pause, mute } = UIkit.util;
 
@@ -8,6 +9,8 @@ ready(function () {
 
     // FORM
     form.init('form');
+
+    sectionServicesScript();
 
     document.querySelectorAll('.s6__step-descr').forEach((el) => {
         el.dataset.height = el.offsetHeight;
