@@ -484,15 +484,24 @@ h2 {
         width: 18.4375rem;
 
         @include media('min-lg') {
-            width: 33.6rem;
+            width: 36.25rem;
         }
 
         &:not(:last-child) {
             padding-right: 1.5rem;
 
             @include media('min-lg') {
-                padding-right: 2.5rem;
+                padding-right: 2.3rem;
             }
+        }
+
+        &:nth-child(even) {
+            // !!! not slider styles
+            @include media('min-lg') {
+                padding-right: 0;
+                margin-bottom: 2.75rem;
+            }
+            // end
         }
 
         .slider-item__content {
@@ -503,16 +512,7 @@ h2 {
 
             @include media('min-lg') {
                 padding: 1.25rem;
-                height: 34.225rem;
-            }
-
-            &:nth-child(even) {
-                // !!! not slider styles
-                @include media('min-lg') {
-                    margin-right: 0;
-                    margin-bottom: 2.75rem;
-                }
-                // end
+                height: 36.875rem;
             }
 
             &:active {
