@@ -1,6 +1,7 @@
 import UIkit from 'uikit';
 import { app, form } from './_core';
 import sectionServicesScript from './_s3';
+import { throttle } from 'lodash';
 
 const { ready, $, $$, play, pause, mute } = UIkit.util;
 
@@ -12,12 +13,53 @@ ready(function () {
 
     sectionServicesScript();
 
+    let $throttledPosition;
+    let prevValue = -1;
+
+    const items = document.querySelectorAll('.s6__step-item');
+    const itemsDescr = [...items].map((e) => e.querySelector('.s6__step-descr'));
+
+    const getItemsValues = () => {
+        return [...items].map((e) => {
+            const topOffset = e.getBoundingClientRect().top + window.scrollY;
+
+            return {
+                top: topOffset,
+                bottom: topOffset + e.clientHeight,
+            };
+        });
+    };
+
+    const updatePosition = (event) => {
+        $throttledPosition = window.scrollY;
+
+        if (!app.isMobile) {
+            return;
+        }
+
+        const viewPoint = window.scrollY + window.innerHeight / 2;
+        const index = getItemsValues().findIndex((e) => e.top < viewPoint && e.bottom > viewPoint);
+
+        if (index !== -1 && prevValue !== index) {
+            prevValue = index;
+            app.changeActivitySet(items, index);
+            itemsDescr.forEach((e) => (e.style.cssText = `height: 0`));
+            itemsDescr[index].style.cssText = `height: ${itemsDescr[index].dataset.height}px`;
+        }
+    };
+
+    window.addEventListener('scroll', throttle(updatePosition, 100));
+
     document.querySelectorAll('.s6__step-descr').forEach((el) => {
         el.dataset.height = el.offsetHeight;
         el.style.height = '0';
     });
 
     document.querySelectorAll('.s6__step-item').forEach((el) => {
+        if (!app.isMobile) {
+            return;
+        }
+
         el.addEventListener('mouseenter', (event) => {
             const innerDescr = el.querySelector('.s6__step-descr');
             innerDescr.style.cssText = `height: ${innerDescr.dataset.height}px`;
@@ -25,6 +67,10 @@ ready(function () {
     });
 
     document.querySelectorAll('.s6__step-item').forEach((el) => {
+        if (!app.isMobile) {
+            return;
+        }
+
         el.addEventListener('mouseleave', (event) => {
             const innerDescr = el.querySelector('.s6__step-descr');
             innerDescr.style.cssText = `height: 0`;

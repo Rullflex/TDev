@@ -585,7 +585,7 @@ h2 {
 
 .s5 {
     padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
 
     @include media('min-lg') {
         padding-top: 0.3125rem;
@@ -702,35 +702,57 @@ h2 {
 }
 
 .s6 {
-    padding-top: 7.5rem;
+    padding-top: 3rem;
     padding-bottom: 9rem;
 
     &__heading {
-        margin-bottom: 5.25rem;
+        margin-bottom: 1.75rem;
+
+        @include media('min-lg') {
+            margin-bottom: 5.25rem;
+        }
+    }
+
+    &__steps-container {
+        @include media('max-lg') {
+            border-top: 0.0625rem solid $border-gray;
+        }
     }
 
     &__step-item {
-        padding: 1.875rem 1.5rem;
+        padding: 1.5rem 0;
         height: fit-content;
         border-bottom: 0.0625rem solid $border-gray;
         position: relative;
         transition: $transition--normal;
 
-        &:hover {
-            background: $primary;
-            color: white;
-
-            .s6__step-image {
-                visibility: visible;
-                opacity: 1;
+        @include media('max-lg') {
+            &.active {
+                .s6__step-descr {
+                    margin: 0.75rem 0 0 auto;
+                }
             }
+        }
 
-            .s6__step-title {
+        @include media('min-lg') {
+            padding: 1.875rem 1.5rem;
+
+            &:hover {
+                background: $primary;
                 color: white;
-            }
 
-            .s6__step-descr {
-                margin: 1.875rem 0 0 auto;
+                .s6__step-image {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                .s6__step-title {
+                    color: white;
+                }
+
+                .s6__step-descr {
+                    margin: 1.875rem 0 0 auto;
+                }
             }
         }
     }
@@ -745,37 +767,69 @@ h2 {
         visibility: hidden;
         opacity: 0;
         transition: inherit;
+
+        @include media('max-lg') {
+            display: none;
+        }
     }
 
     &__step-counter {
         font-weight: 600;
-        font-size: 1.125rem;
+        font-size: 0.75rem;
         text-transform: uppercase;
 
         position: absolute;
-        top: 1rem;
-        left: 1.5rem;
+        top: 1.5rem;
+        right: 0;
+
+        @include media('max-lg') {
+            color: $text-tertiary;
+        }
+
+        @include media('min-lg') {
+            font-size: 1.125rem;
+            top: 1rem;
+            left: 1.5rem;
+        }
     }
 
     &__step-title {
-        max-width: 40.5625rem;
+        max-width: 16.6875rem;
         font-weight: 500;
-        font-size: 2rem;
-        text-align: right;
+        font-size: 1.125rem;
         text-transform: uppercase;
         color: $text-tertiary;
         white-space: pre-line;
-        margin: 0 0 0 auto;
         transition: inherit;
+
+        @include media('max-lg') {
+            line-height: 1.22;
+        }
+
+        @include media('min-lg') {
+            text-align: right;
+            font-size: 2rem;
+            max-width: 40.5625rem;
+            margin: 0 0 0 auto;
+        }
     }
 
     &__step-descr {
-        text-align: right;
-        max-width: 33rem;
-        margin: 0 0 0 auto;
+        font-size: 0.75rem;
         overflow: hidden;
-        color: white;
         transition: inherit;
+
+        @include media('max-lg') {
+            line-height: 1.4;
+        }
+
+        @include media('min-lg') {
+            color: white;
+            text-align: right;
+            font-size: 0.75rem;
+            max-width: 33rem;
+            margin: 0 0 0 auto;
+        }
     }
 }
 
