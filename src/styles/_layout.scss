@@ -239,11 +239,8 @@ h2 {
         justify-content: center;
         margin: 0 auto;
 
-        @include media('max-lg') {
-        }
-
         @include media('min-lg') {
-            width: 52.775rem;
+            width: 57.675rem;
         }
     }
 
@@ -299,22 +296,30 @@ h2 {
             transition: 0.3s cubic-bezier(0.49, 0.44, 0.43, 1);
             position: relative;
 
-            &.active {
-                font-weight: 600;
-                color: $primary;
-
-                &::before {
-                    transform-origin: 0% 50%;
-                    transform: scale3d(1, 1, 1);
-                }
-            }
-
             @include media('max-lg') {
                 display: block;
             }
 
             @include media('min-lg') {
-                @include hover-bold(600, 1.5rem);
+                // @include hover-bold(600, 1.5rem);
+
+                &.active {
+                    // font-weight: 600;
+                    color: $primary;
+
+                    &::before {
+                        transform-origin: 0% 50%;
+                        transform: scale3d(1, 1, 1);
+                    }
+
+                    // &::after {
+                    //     content: '';
+                    //     width: 0.75rem;
+                    //     height: 0.75rem;
+                    //     background: center / contain no-repeat url('/images/icons/arrow-right.svg');
+                    //     transition: $transition--hover;
+                    // }
+                }
 
                 &::before {
                     content: '';
@@ -1199,7 +1204,6 @@ h2 {
         }
 
         @include media('min-lg') {
-            width: 18.75rem;
             padding-left: 1.75rem;
             line-height: 6rem;
             font-size: 1.125rem;

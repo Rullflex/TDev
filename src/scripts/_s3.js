@@ -11,7 +11,7 @@ export default function sectionServicesScript() {
     };
 
     document.querySelectorAll('.s3__breadcrumb span').forEach((el, index, set) => {
-        el.addEventListener('click', () => {
+        el.addEventListener('mouseenter', () => {
             app.changeActivitySet(set, index);
             app.changeActivitySet(imagesSet, index);
         });

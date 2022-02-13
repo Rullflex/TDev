@@ -1,6 +1,6 @@
-.popup {
+.modal {
     padding: 1rem 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(#5b4b4b, 0.95);
     align-items: center;
 
     &__body {
@@ -8,31 +8,95 @@
     }
 
     &__close {
+        padding: 0.25rem;
+        right: 0.5rem;
+        top: 0.5rem;
+        color: #292929;
+
         svg {
-            width: 1rem;
-        }
-    }
-}
-
-@media (min-width: map-get($grid-breakpoints, md)) {
-    .popup {
-        &__close {
-            right: 1rem;
-            top: 1rem;
-
-            svg {
-                width: 1.5rem;
-            }
+            width: 0.5rem;
         }
     }
 }
 
 @media (min-width: map-get($grid-breakpoints, lg)) {
-    .popup {
+    .modal {
         &__close {
-            &:hover {
-                color: link-hover($primary);
+            svg {
+                width: 1rem;
             }
+
+            &:hover {
+                color: rgba(#5b4b4b, 0.95);
+            }
+        }
+    }
+}
+
+.callback {
+    &__body {
+        padding: 4.125rem 1.5rem 3.0625rem;
+
+        @include media('min-lg') {
+            padding: 3.5rem 5.5rem 3.125rem;
+            width: 33.75rem;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 1.5rem;
+        letter-spacing: 0.005em;
+        color: #18191f;
+        text-transform: none;
+        margin-bottom: 2.25rem;
+
+        @include media('min-lg') {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__form {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+
+    &__form-input-wrap {
+        margin-bottom: 0.5rem;
+    }
+
+    &__form-input {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 4rem;
+        padding-left: 1.5rem;
+        background: white;
+
+        @include media('min-lg') {
+            font-size: 1.125rem;
+        }
+    }
+
+    &__submit-button {
+        width: 100%;
+        line-height: 4rem;
+
+        @include media('min-lg') {
+            line-height: 4rem;
+        }
+    }
+
+    &__form-agreement {
+        font-size: 0.6875rem;
+        line-height: 1.18;
+        text-align: center;
+        margin-top: 0.75rem;
+
+        @include media('min-lg') {
+            font-size: 0.75rem;
+            line-height: 0.9375rem;
         }
     }
 }

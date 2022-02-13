@@ -1,1 +1,13 @@
 +Modal#callback
+    .callback__body
+        h2.callback__title Оставить заявку
+
+        form.form.callback__form
+            .input-wrap.callback__form-input-wrap
+                input.input.callback__form-input(type="text" name="name" placeholder="Введите имя")
+            .input-wrap.callback__form-input-wrap
+                input.input.phone.callback__form-input(type="tel" name="phone" placeholder="Введите телефон")
+            .input-wrap.callback__form-input-wrap
+                input.input.callback__form-input(type="email" name="email" placeholder="Введите e-mail")
+            +Button.callback__submit-button(primary type="submit") Отправить
+            .callback__form-agreement Нажимая на кнопку, вы принимаете Положение и&nbsp;Согласие на обработку персональных данных.
