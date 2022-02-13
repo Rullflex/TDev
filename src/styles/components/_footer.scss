@@ -1,0 +1,52 @@
+.footer {
+    background: #292929;
+
+    &__row {
+        padding: 1.5rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include media('min-lg') {
+            height: 14.125rem;
+        }
+    }
+
+    &__logo {
+        width: 3.75rem;
+        color: white;
+
+        svg {
+            width: 100%;
+        }
+
+        @include media('min-lg') {
+            width: 6.1875rem;
+        }
+    }
+
+    &__personal-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        a {
+            font-size: 0.625rem;
+            line-height: 0.75rem;
+            color: white;
+
+            @include media('min-lg') {
+                font-size: 0.75rem;
+                line-height: 0.9375rem;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
