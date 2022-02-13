@@ -166,47 +166,47 @@ block content
 
 	section.s9 
 		.container
-			h2.s9__heading Ваш бизнес после#[br] внедрения #[span.text-primary цифровизации] 
+			h2.s9__heading Ваш бизнес#[br.d-lg-none] после#[br.d-none.d-lg-inline] внедрения #[span.text-primary цифровизации] 
 
 			ul.s9__list
 				li.s9__list-item
-					+ThinMagnifierSvg('white').s9__list-icon 
+					+ThinMagnifierSvg.s9__list-icon 
 					div.s9__list-text-wrap
 						.s9__list-title Порядок в данных
-						.s9__list-descr Устраняются ошибки ведения CRM, потери лидов#[br] и необходимой информации
+						.s9__list-descr Устраняются ошибки ведения CRM, потери лидов#[br.d-none.d-lg-inline] и необходимой информации
 				li.s9__list-item
-					+ThinDollarCircleSvg('white').s9__list-icon 
+					+ThinDollarCircleSvg.s9__list-icon 
 					div.s9__list-text-wrap
 						.s9__list-title Рост продаж
-						.s9__list-descr Сокращается цикл сделок и увеличивается#[br] конверсия в продажи
+						.s9__list-descr Сокращается цикл сделок и увеличивается#[br.d-none.d-lg-inline] конверсия в продажи
 				li.s9__list-item
-					+ThinDollarCircleTimeSvg('white').s9__list-icon 
+					+ThinDollarCircleTimeSvg.s9__list-icon 
 					div.s9__list-text-wrap
 						.s9__list-title Снижение затрат
-						.s9__list-descr Оптимизируются затраты на маркетинг#[br] и строительство
+						.s9__list-descr Оптимизируются затраты на маркетинг#[br.d-none.d-lg-inline] и строительство
 				li.s9__list-item
-					+ThinClockSvg('white').s9__list-icon 
+					+ThinClockSvg.s9__list-icon 
 					div.s9__list-text-wrap
 						.s9__list-title Экономия времени
-						.s9__list-descr Все бизнес-процессы выстроены в одну систему,#[br] что позволяет грамотно руководить бизнесом
+						.s9__list-descr Все бизнес-процессы выстроены в одну систему,#[br.d-none.d-lg-inline] что позволяет грамотно руководить бизнесом
 				li.s9__list-item
-					+ThinDollarCircleTimeSvg('white').s9__list-icon 
+					+ThinDollarCircleTimeSvg.s9__list-icon 
 					div.s9__list-text-wrap
 						.s9__list-title Эффективное управление
-						.s9__list-descr Все решения оперативно принимаются на местах#[br] благодаря правильной дистрибуции данных
+						.s9__list-descr Все решения оперативно принимаются на местах#[br.d-none.d-lg-inline] благодаря правильной дистрибуции данных
 
-			+Button.s9__button(primary type="button") Хочу обсудить задачу
+			+Button.s9__button(primary type="button") Заказать консультацию
 
 	section#section-team.s7 
 		.container 
 			h2.s7__heading #[span.text-primary Команда] разработки и&nbsp;внедрения цифровых решений
 			figure.s7__figure
-				.s7__team-image: +picture-min(jpg, 's7-team', 'l')
+				.s7__team-image: +picture-min(jpg, 's7-team', 'sl')
 				figcaption.s7__figcaption В нашей команде собраны лучшие#[br]IT-специалисты, способные решать самые сложные бизнес-задачи#[br]в сфере девелопмента
 
 	section#section-vacancies.s8 
 		.container 
-			h2.s8__heading Вакансии в #[span.text-primary T.Dev]
+			h2.s8__heading Вакансии в&nbsp;#[span.text-primary T.Dev]
 
 			ul.s8__job-list
 				- for(let i = 0; i < 3; i++)
@@ -220,6 +220,10 @@ block content
 				span Смотреть все вакансии
 				+ArrowRightSvg
 
+			+Button.s8__show-all-button(href="#" tag="a" outline primary)
+				| Смотреть все вакансии
+				+ArrowRightSvg
+
 	section.s10 
 		.container
 			.s10__content-container
@@ -231,15 +235,16 @@ block content
 					.input-wrap 
 						input.input.s10__form-input(type="text" name="name" placeholder="Введите ваше имя")
 					.input-wrap 
-						input.input.phone.s10__form-input(type="tel" name="phone" placeholder="Введите номер телефона")
+						input.input.phone.s10__form-input(type="tel" name="phone" placeholder="Введите телефон")
 					.input-wrap 
 						input.input.s10__form-input(type="email" name="email" placeholder="Введите e-mail")
 					+Button.s10__submit-button(primary type="submit") Заказать консультацию
+					.s10__form-agreement Нажимая на кнопку, вы принимаете Положение и Согласие на обработку персональных данных.
 
 	section#section-contacts.s11 
 		.container 
 			.s11__content-container
-				.s11__map-image: +picture-min(jpg, 's11-map', 'l')
+				.s11__map-image: +picture-min(jpg, 's11-map', 'sl')
 
 				.s11__contacts 
 					h2.s11__title Контакты

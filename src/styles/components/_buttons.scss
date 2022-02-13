@@ -4,6 +4,10 @@
     color: $accent;
     fill: $accent;
 
+    &:active {
+        background: $accent;
+    }
+
     @media (min-width: map-get($grid-breakpoints, lg)) {
         &:hover {
             background: $accent;
@@ -23,6 +27,10 @@
         height: 0.75rem;
         background: center / contain no-repeat url('/images/icons/arrow-right.svg');
         transition: $transition--hover;
+    }
+
+    &:active {
+        background: #1a8b49;
     }
 
     @media (min-width: map-get($grid-breakpoints, lg)) {
@@ -98,6 +106,10 @@
         font-weight: 600;
         font-size: 1.125rem;
         line-height: 5.375rem;
+
+        @include media('min-lg') {
+            line-height: 6.25rem;
+        }
     }
 
     &--outline {

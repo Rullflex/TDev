@@ -703,7 +703,12 @@ h2 {
 
 .s6 {
     padding-top: 3rem;
-    padding-bottom: 9rem;
+    padding-bottom: 4rem;
+
+    @include media('min-lg') {
+        padding-top: 7.5rem;
+        padding-bottom: 9rem;
+    }
 
     &__heading {
         margin-bottom: 1.75rem;
@@ -834,12 +839,23 @@ h2 {
 }
 
 .s7 {
-    padding-top: 8.4375rem;
-    padding-bottom: 13.55rem;
+    padding-top: 3rem;
+    padding-bottom: 9.7rem;
+
+    @include media('min-lg') {
+        padding-top: 8.4375rem;
+        padding-bottom: 13.55rem;
+    }
 
     &__heading {
         max-width: 47.625rem;
         margin-bottom: 4rem;
+
+        @include media('max-lg') {
+            font-size: 1.5rem;
+            line-height: 1.22;
+            margin-bottom: 0;
+        }
     }
 
     &__figure {
@@ -849,43 +865,83 @@ h2 {
     &__team-image {
         @include ibg;
         height: 43.375rem;
+
+        @include media('max-lg') {
+            height: 15.9375rem;
+            margin-top: -1.6875rem;
+        }
     }
 
     &__figcaption {
-        width: 37.5rem;
-        padding: 2rem 3.3125rem 2.9375rem 2rem;
+        width: 20.8125rem;
+        padding: 1.5rem;
 
         background: $primary;
         color: white;
         font-weight: 500;
-        font-size: 1.5rem;
+        font-size: 0.75rem;
 
         position: absolute;
-        right: 0;
-        bottom: -2.4125rem;
+        left: 0;
+        bottom: -6.5125rem;
+
+        @include media('min-lg') {
+            width: 37.5rem;
+            padding: 2rem 3.3125rem 2.9375rem 2rem;
+
+            font-size: 1.5rem;
+
+            right: 0;
+            left: unset;
+            bottom: -2.4125rem;
+        }
     }
 }
 
 .s8 {
-    padding-top: 5.9625rem;
-    padding-bottom: 6.25rem;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+
+    @include media('min-lg') {
+        padding-top: 5.9625rem;
+        padding-bottom: 6.25rem;
+    }
 
     &__heading {
-        margin-bottom: 3.75rem;
+        margin-bottom: 1.75rem;
+
+        @include media('min-lg') {
+            margin-bottom: 3.75rem;
+        }
     }
 
     &__job-list {
-        border: 0.0625rem solid $border-gray;
+        @include media('min-lg') {
+            border: 0.0625rem solid $border-gray;
+        }
     }
 
     &__list-item {
-        padding: 2.3rem 2rem;
+        padding: 1.5rem 1rem 1rem 1rem;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        &:not(:last-child) {
-            border-bottom: 0.0625rem solid $border-gray;
+        @include media('max-lg') {
+            flex-direction: column;
+            border: 0.0625rem solid $border-gray;
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @include media('min-lg') {
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.3rem 2rem;
+
+            &:not(:last-child) {
+                border-bottom: 0.0625rem solid $border-gray;
+            }
         }
     }
 
@@ -894,17 +950,33 @@ h2 {
         font-weight: 600;
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
+
+        @include media('max-lg') {
+            font-size: 1.25rem;
+        }
     }
 
     &__job-salary {
         font-weight: 500;
         font-size: 1.125rem;
         color: $text-tertiary;
+
+        @include media('max-lg') {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
     }
 
     &__item-button {
-        width: 23.9375rem;
-        line-height: 6.25rem;
+        width: 100%;
+
+        @include media('max-lg') {
+            line-height: 4.375rem;
+        }
+
+        @include media('min-lg') {
+            width: 23.9375rem;
+        }
     }
 
     &__link-show-all {
@@ -926,23 +998,57 @@ h2 {
         &:hover {
             border-bottom: 0.0625rem solid $primary;
         }
+
+        @include media('max-lg') {
+            display: none;
+        }
+    }
+
+    &__show-all-button {
+        margin-top: 1.3rem;
+
+        svg {
+            width: 1rem;
+            vertical-align: baseline;
+            transform: rotate(-45deg);
+            margin-left: 0.3rem;
+        }
+
+        @include media('min-lg') {
+            display: none;
+        }
     }
 }
 
 .s9 {
-    padding-top: 8.25rem;
-    padding-bottom: 8.125rem;
+    padding-top: 2.9rem;
+    padding-bottom: 4rem;
+
+    @include media('min-lg') {
+        padding-top: 8.25rem;
+        padding-bottom: 8.125rem;
+    }
 
     &__heading {
-        text-align: center;
-        margin-bottom: 5.25rem;
+        @include media('max-lg') {
+            font-size: 1.5rem;
+            margin-bottom: 1.7rem;
+        }
+
+        @include media('min-lg') {
+            text-align: center;
+            margin-bottom: 5.25rem;
+        }
     }
 
     &__list {
+        @include media('max-lg') {
+            border-top: 0.0625rem solid $border-gray;
+        }
     }
 
     &__list-item {
-        padding: 2rem;
+        padding: 1.5rem 0;
         display: flex;
         align-items: center;
 
@@ -952,19 +1058,21 @@ h2 {
 
         transition: $transition--hover;
 
-        &:nth-child(even) {
-            flex-direction: row-reverse;
-            text-align: right;
-
-            .s9__list-icon {
-                padding-right: 0;
-                padding-left: 1.5rem;
-                margin-left: 0;
-                margin-right: -9.25rem;
-            }
-        }
-
         @include media('min-lg') {
+            padding: 2rem;
+
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+                text-align: right;
+
+                .s9__list-icon {
+                    padding-right: 0;
+                    padding-left: 1.5rem;
+                    margin-left: 0;
+                    margin-right: -9.25rem;
+                }
+            }
+
             &:hover {
                 background: $primary;
                 color: white;
@@ -978,44 +1086,82 @@ h2 {
     }
 
     &__list-icon {
-        width: 9.25rem;
         transition: inherit;
-        padding-right: 1.5rem;
-        margin-left: -9.25rem;
+
+        @include media('max-lg') {
+            width: 3.375rem;
+            margin-right: 0.8125rem;
+            color: $primary;
+        }
+
+        @include media('min-lg') {
+            color: white;
+            width: 9.25rem;
+            padding-right: 1.5rem;
+            margin-left: -9.25rem;
+        }
     }
 
     &__list-title {
         font-weight: 500;
-        font-size: 2rem;
+        font-size: 1rem;
         text-transform: uppercase;
 
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+
+        @include media('max-lg') {
+            color: $text-headings;
+        }
+
+        @include media('min-lg') {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
     }
 
     &__list-descr {
         font-size: 1rem;
         line-height: 1.4;
+
+        @include media('max-lg') {
+            font-size: 0.75rem;
+            width: 17.25rem;
+        }
     }
 
     &__button {
-        width: 25.25rem;
-        line-height: 6.25rem;
-        margin: 0 0 0 auto;
+        width: 100%;
+        margin-top: 4.5rem;
+
+        @include media('min-lg') {
+            width: 25.25rem;
+            line-height: 6.25rem;
+            margin: 0 0 0 auto;
+        }
     }
 }
 
 .s10 {
-    padding-top: 7rem;
-    padding-bottom: 8.125rem;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+
+    @include media('min-lg') {
+        padding-top: 7rem;
+        padding-bottom: 8.125rem;
+    }
 
     &__content-container {
-        display: flex;
-        justify-content: space-between;
-        border: 0.0625rem solid $border-cadet;
+        @include media('min-lg') {
+            display: flex;
+            justify-content: space-between;
+            border: 0.0625rem solid $border-cadet;
+        }
     }
 
     &__head {
-        padding: 3rem;
+        @include media('min-lg') {
+            padding: 3rem;
+        }
     }
 
     &__title {
@@ -1027,51 +1173,129 @@ h2 {
         max-width: 28.9375rem;
         font-size: 1.125rem;
         color: $text-headings;
+
+        @include media('max-lg') {
+            margin-bottom: 2rem;
+        }
     }
 
     &__form {
-        width: 37.5rem;
+        @include media('min-lg') {
+            width: 37.5rem;
+        }
+    }
+
+    &__form-input {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 3.7rem;
+        padding-left: 1.5rem;
+        background: white;
+
+        &:not(.s5__form-input--last) {
+            @include media('min-lg') {
+                border-right: none;
+            }
+        }
+
+        @include media('min-lg') {
+            width: 18.75rem;
+            padding-left: 1.75rem;
+            line-height: 6rem;
+            font-size: 1.125rem;
+        }
     }
 
     &__form-input {
         width: 100%;
         padding-left: 1.5rem;
-        height: 6.25rem;
-        font-size: 1.125rem;
-        border-top: none;
-        border-right: none;
+        height: 4rem;
+        font-size: 1rem;
+
+        @include media('max-lg') {
+            border-bottom: none;
+        }
+
+        @include media('min-lg') {
+            padding-left: 1.5rem;
+            height: 6.25rem;
+            font-size: 1.125rem;
+            border-top: none;
+            border-right: none;
+        }
     }
 
     &__submit-button {
         width: 100%;
-        line-height: 6.25rem;
+    }
+
+    &__form-agreement {
+        font-size: 0.6875rem;
+        line-height: 1.18;
+        text-align: center;
+        margin-top: 0.75rem;
+
+        @include media('min-lg') {
+            width: 38.625rem;
+            position: absolute;
+            right: 0.3125rem;
+            bottom: -1.875rem;
+        }
     }
 }
 
 .s11 {
-    padding-top: 8.125rem;
-    padding-bottom: 7.5rem;
+    padding-top: 3rem;
+    padding-bottom: 2.8rem;
+
+    @include media('min-lg') {
+        padding-top: 8.125rem;
+        padding-bottom: 7.5rem;
+    }
+
+    &__title {
+        @include media('max-lg') {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
 
     &__content-container {
-        display: flex;
-        justify-content: space-between;
+        @include media('min-lg') {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
     &__map-image {
         @include ibg(rgb(240, 236, 235));
-        width: 37.5rem;
-        height: 28.875rem;
+        width: 23.4375rem;
+        height: 10.75rem;
+
+        @include media('max-lg') {
+            @include center-item-x(relative);
+        }
+
+        @include media('min-lg') {
+            width: 37.5rem;
+            height: 28.875rem;
+        }
     }
 
     &__contacts {
-        width: 36rem;
         position: relative;
+
+        @include media('min-lg') {
+            width: 36rem;
+        }
     }
 
     &__contacts-info-container {
-        position: absolute;
-        left: 0;
-        bottom: 0;
+        @include media('min-lg') {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
     }
 
     &__contacts-info-block {
@@ -1080,7 +1304,11 @@ h2 {
         align-items: flex-start;
 
         &:first-child {
-            margin-bottom: 4.625rem;
+            margin-bottom: 2.325rem;
+
+            @include media('min-lg') {
+                margin-bottom: 4.625rem;
+            }
         }
     }
 
@@ -1126,6 +1354,10 @@ h2 {
             &:hover {
                 text-decoration: underline;
             }
+        }
+
+        @include media('max-lg') {
+            display: none;
         }
     }
 }

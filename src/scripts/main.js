@@ -7,19 +7,15 @@ const { ready, $, $$, play, pause, mute } = UIkit.util;
 
 ready(function () {
     app.init();
-
-    // FORM
     form.init('form');
 
     sectionServicesScript();
 
-    let $throttledPosition;
     let prevValue = -1;
-
     const items = document.querySelectorAll('.s6__step-item');
     const itemsDescr = [...items].map((e) => e.querySelector('.s6__step-descr'));
 
-    const getItemsValues = () => {
+    function getItemsValues() {
         return [...items].map((e) => {
             const topOffset = e.getBoundingClientRect().top + window.scrollY;
 
@@ -28,27 +24,23 @@ ready(function () {
                 bottom: topOffset + e.clientHeight,
             };
         });
-    };
+    }
 
-    const updatePosition = (event) => {
-        $throttledPosition = window.scrollY;
+    function handleWindowScroll(event) {
+        if (app.isMobile) {
+            const viewPoint = window.scrollY + window.innerHeight / 2;
+            const index = getItemsValues().findIndex((e) => e.top < viewPoint && e.bottom > viewPoint);
 
-        if (!app.isMobile) {
-            return;
+            if (index !== -1 && prevValue !== index) {
+                prevValue = index;
+                app.changeActivitySet(items, index);
+                itemsDescr.forEach((e) => (e.style.cssText = `height: 0`));
+                itemsDescr[index].style.cssText = `height: ${itemsDescr[index].dataset.height}px`;
+            }
         }
+    }
 
-        const viewPoint = window.scrollY + window.innerHeight / 2;
-        const index = getItemsValues().findIndex((e) => e.top < viewPoint && e.bottom > viewPoint);
-
-        if (index !== -1 && prevValue !== index) {
-            prevValue = index;
-            app.changeActivitySet(items, index);
-            itemsDescr.forEach((e) => (e.style.cssText = `height: 0`));
-            itemsDescr[index].style.cssText = `height: ${itemsDescr[index].dataset.height}px`;
-        }
-    };
-
-    window.addEventListener('scroll', throttle(updatePosition, 100));
+    window.addEventListener('scroll', throttle(handleWindowScroll, 100));
 
     document.querySelectorAll('.s6__step-descr').forEach((el) => {
         el.dataset.height = el.offsetHeight;
@@ -56,7 +48,7 @@ ready(function () {
     });
 
     document.querySelectorAll('.s6__step-item').forEach((el) => {
-        if (!app.isMobile) {
+        if (app.isMobile) {
             return;
         }
 
@@ -67,7 +59,7 @@ ready(function () {
     });
 
     document.querySelectorAll('.s6__step-item').forEach((el) => {
-        if (!app.isMobile) {
+        if (app.isMobile) {
             return;
         }
 

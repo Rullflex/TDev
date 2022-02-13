@@ -15,14 +15,14 @@
         &.has-error {
             #{$self} {
                 // border-color: $danger !important;
-                color: $danger;
+                // color: $danger;
             }
         }
 
         &.has-success {
             #{$self} {
                 // border-color: $success !important;
-                color: $success;
+                // color: $success;
             }
         }
     }
