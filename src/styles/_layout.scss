@@ -10,6 +10,14 @@ h6 {
     font-weight: 600;
 }
 
+h1 {
+    font-size: 2rem;
+
+    @include media('min-lg') {
+        font-size: 3rem;
+    }
+}
+
 h2 {
     font-size: 2.0625rem;
     line-height: 1.1;
@@ -20,7 +28,8 @@ h2 {
 }
 
 .s1 {
-    padding-top: 5rem;
+    padding-top: 3.3rem;
+    padding-bottom: 2rem;
 
     @include media('min-lg') {
         padding-top: 15.75rem;
@@ -36,6 +45,10 @@ h2 {
         font-size: 2.0625rem;
         line-height: 1.12;
 
+        @include media('max-lg') {
+            text-align: center;
+        }
+
         @include media('min-lg') {
             font-size: 4.5rem;
             line-height: 1;
@@ -43,12 +56,12 @@ h2 {
     }
 
     &__subtitle {
-        max-width: 14.3125rem;
         font-size: 0.875rem;
-        margin-top: 1.875rem;
+        margin-top: 1.475rem;
 
         @include media('max-lg') {
             line-height: 1.45;
+            text-align: center;
         }
 
         @include media('min-lg') {
@@ -61,11 +74,7 @@ h2 {
     &__target-button {
         width: 100%;
         line-height: 5.4375rem;
-        margin-top: 13.2rem;
-
-        @include media('max-lg') {
-            transform: translateY(50%);
-        }
+        margin-top: 26.4rem;
 
         @include media('min-lg') {
             width: 23.625rem;
@@ -76,7 +85,7 @@ h2 {
 }
 
 .s2 {
-    padding-top: 10.3125rem;
+    padding-top: 6.9125rem;
     padding-bottom: 4rem;
 
     @include media('min-lg') {
@@ -85,7 +94,7 @@ h2 {
     }
 
     &__heading {
-        margin-bottom: 3.2625rem;
+        margin-bottom: 1.8625rem;
 
         @include media('min-lg') {
             margin-bottom: 5.25rem;
@@ -205,73 +214,90 @@ h2 {
 }
 
 .s3 {
-    padding-top: 9.6875rem;
-    padding-bottom: 8.125rem;
+    padding-top: 2.7875rem;
+    padding-bottom: 3.925rem;
+
+    @include media('min-lg') {
+        padding-top: 9.6875rem;
+        padding-bottom: 8.125rem;
+    }
 
     &__heading {
-        position: absolute;
-        left: -4.1875rem;
-        top: 4.875rem;
-        transform: rotate(-90deg);
+        margin-bottom: 1.5rem;
+
+        @include media('min-lg') {
+            position: absolute;
+            left: -4.1875rem;
+            top: 4.875rem;
+            transform: rotate(-90deg);
+        }
     }
 
     &__breadcrumbs {
-        width: 52.775rem;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         margin: 0 auto;
+
+        @include media('max-lg') {
+        }
+
+        @include media('min-lg') {
+            width: 52.775rem;
+        }
     }
 
     &__breadcrumb {
-        color: $text-gray;
-        font-weight: 500;
-        font-size: 1.5rem;
+        color: $text-headings;
+        font-weight: 600;
+        font-size: 0.875rem;
         text-transform: uppercase;
-        margin-bottom: 2rem;
 
-        &--has-slash {
+        @include media('max-lg') {
+            padding: 0.5rem;
+            width: 50%;
+            height: 14.625rem;
+            margin-bottom: -0.0625rem;
+
+            border: 0.0625rem solid $border-gray;
+
+            &:nth-child(even) {
+                margin-left: -0.0625rem;
+            }
+
             &::after {
-                content: '/';
-                padding: 0 2.0625rem;
+                content: 'Подробнее';
+                color: $text-tertiary;
+                font-weight: 500;
+                font-size: 0.625rem;
+                margin-top: 0.1875rem;
             }
         }
 
-        &--slash-narrow {
-            &::after {
-                padding: 0 1.75rem;
+        @include media('min-lg') {
+            color: $text-tertiary;
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+
+            &--has-slash {
+                &::after {
+                    content: '/';
+                    padding: 0 2.0625rem;
+                }
+            }
+
+            &--slash-narrow {
+                &::after {
+                    padding: 0 1.75rem;
+                }
             }
         }
 
-        span {
-            @include hover-bold(600, 1.5rem);
+        > span {
             cursor: pointer;
             transition: 0.3s cubic-bezier(0.49, 0.44, 0.43, 1);
             position: relative;
-
-            &::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 0.125rem;
-                background: currentColor;
-                top: 90%;
-                left: 0;
-                pointer-events: none;
-
-                transform-origin: 100% 50%;
-                transform: scale3d(0, 1, 1);
-                transition: transform 0.3s cubic-bezier(0.49, 0.44, 0.43, 1);
-            }
-
-            &:hover {
-                color: $primary;
-
-                &::before {
-                    transform-origin: 0% 50%;
-                    transform: scale3d(1, 1, 1);
-                }
-            }
 
             &.active {
                 font-weight: 600;
@@ -282,10 +308,68 @@ h2 {
                     transform: scale3d(1, 1, 1);
                 }
             }
+
+            @include media('max-lg') {
+                display: block;
+            }
+
+            @include media('min-lg') {
+                @include hover-bold(600, 1.5rem);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 0.125rem;
+                    background: currentColor;
+                    top: 90%;
+                    left: 0;
+                    pointer-events: none;
+
+                    transform-origin: 100% 50%;
+                    transform: scale3d(0, 1, 1);
+                    transition: transform 0.3s cubic-bezier(0.49, 0.44, 0.43, 1);
+                }
+
+                &:hover {
+                    color: $primary;
+
+                    &::before {
+                        transform-origin: 0% 50%;
+                        transform: scale3d(1, 1, 1);
+                    }
+                }
+            }
+        }
+    }
+
+    &__breadcrumb-image {
+        @include ibg();
+        width: 100%;
+        height: 9.125rem;
+        margin-bottom: 0.5rem;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 36.39%, rgba(0, 0, 0, 0.4) 100%);
+        }
+
+        @include media('min-lg') {
+            display: none;
         }
     }
 
     &__preview-image-wrap {
+        @include media('max-lg') {
+            display: none;
+        }
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -324,11 +408,15 @@ h2 {
 }
 
 .s4 {
-    padding-top: 7.5375rem;
-    padding-bottom: 6.25rem;
+    padding-top: 3.2375rem;
+    padding-bottom: 4rem;
 
     &__heading {
-        margin-bottom: 4.45rem;
+        margin-bottom: 3.15rem;
+
+        @include media('min-lg') {
+            margin-bottom: 4.45rem;
+        }
     }
 
     &__show-all-link {
@@ -353,71 +441,135 @@ h2 {
         &:hover {
             border-bottom: 0.0625rem solid $primary;
         }
+
+        @include media('max-lg') {
+            display: none;
+        }
+    }
+
+    &__show-all-button {
+        width: 100%;
+        line-height: 5.375rem;
+        margin-top: 2rem;
+
+        svg {
+            width: 1rem;
+            vertical-align: baseline;
+            margin-left: 0.7rem;
+            transform: rotate(-45deg);
+        }
+
+        @include media('min-lg') {
+            display: none;
+        }
     }
 
     &__slider {
         .slider-items {
             // !!! not slider styles
-            flex-wrap: wrap;
+            @include media('min-lg') {
+                flex-wrap: wrap;
+            }
             // end
         }
     }
 
     &__slider-item {
-        padding: 1.25rem;
-        width: 33.6rem;
-        height: 34.225rem;
-        border: 0.0625rem solid $border-gray;
+        box-sizing: content-box;
+        width: 18.4375rem;
+
+        @include media('min-lg') {
+            width: 33.6rem;
+        }
 
         &:not(:last-child) {
-            margin-right: 2.5rem;
+            padding-right: 1.5rem;
+
+            @include media('min-lg') {
+                padding-right: 2.5rem;
+            }
         }
 
-        &:nth-child(even) {
-            // !!! not slider styles
-            margin-right: 0;
-            margin-bottom: 2.75rem;
-            // end
-        }
+        .slider-item__content {
+            padding: 1.125rem;
+            height: 23.25rem;
 
-        &:active {
-            cursor: grabbing;
+            border: 0.0625rem solid $border-gray;
+
+            @include media('min-lg') {
+                padding: 1.25rem;
+                height: 34.225rem;
+            }
+
+            &:nth-child(even) {
+                // !!! not slider styles
+                @include media('min-lg') {
+                    margin-right: 0;
+                    margin-bottom: 2.75rem;
+                }
+                // end
+            }
+
+            &:active {
+                cursor: grabbing;
+            }
         }
     }
 
     &__slider-image-container {
-        height: 25.375rem;
+        height: 14.1125rem;
         background: #f4f4f3;
         position: relative;
 
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
+
+        @include media('min-lg') {
+            height: 25.375rem;
+            margin-bottom: 1.5rem;
+        }
 
         img {
-            width: 18.25rem;
+            width: 10.6875rem;
             position: absolute;
-            bottom: 0;
-            left: 7.375rem;
+            bottom: 1.6875rem;
+            left: 3.4rem;
+
+            @include media('min-lg') {
+                width: 18.25rem;
+                left: 7.375rem;
+                bottom: 0;
+            }
         }
     }
 
     &__slider-item-title {
         font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 1.3;
+        font-size: 1.125rem;
+        line-height: 1.18;
         letter-spacing: 0.005em;
         text-transform: uppercase;
         color: $text-headings;
-        margin-bottom: 2rem;
+        margin-bottom: 1.75rem;
+
+        @include media('min-lg') {
+            font-size: 1.5rem;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
     }
 
     &__slider-item-link {
         font-weight: 500;
-        font-size: 1.125rem;
+        font-size: 1rem;
         line-height: 1.375rem;
         text-transform: uppercase;
-        color: $text-gray;
+        color: $text-tertiary;
 
         transition: $transition--hover;
+
+        @include media('min-lg') {
+            font-size: 1.125rem;
+        }
 
         svg {
             width: 1.5rem;
@@ -432,52 +584,120 @@ h2 {
 }
 
 .s5 {
-    padding-top: 0.3125rem;
-    padding-bottom: 7.675rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    @include media('min-lg') {
+        padding-top: 0.3125rem;
+        padding-bottom: 7.675rem;
+    }
 
     &__star-image {
-        width: 39.3125rem;
+        z-index: -1;
+        width: 21.0625rem;
         position: absolute;
-        right: 1.5rem;
-        top: 3.125rem;
+        top: 0;
+        left: 12.5rem;
+
+        @include media('min-lg') {
+            width: 39.3125rem;
+            right: 1.5rem;
+            left: unset;
+            top: 3.125rem;
+        }
     }
 
     &__float-title {
-        font-size: 1.125rem;
+        font-size: 0.75rem;
         letter-spacing: 0.005em;
         text-transform: uppercase;
-        color: $text-gray;
+        color: $text-tertiary;
         transform: rotate(90deg);
         position: absolute;
-        top: 19.0625rem;
-        right: -3.875rem;
+        top: 3.4625rem;
+        right: -2.075rem;
+
+        @include media('min-lg') {
+            font-size: 1.125rem;
+            top: 19.0625rem;
+            right: -3.875rem;
+        }
     }
 
     &__heading {
-        width: 35.625rem;
-        padding-top: 12.575rem;
-        line-height: 1.6;
-        margin-bottom: 7.25rem;
+        width: 18.8125rem;
+        line-height: 1.245;
+        margin-bottom: 2rem;
+
+        @include media('max-lg') {
+            font-size: 1.5rem;
+        }
+
+        @include media('min-lg') {
+            width: 35.625rem;
+            padding-top: 12.575rem;
+            line-height: 1.6;
+            margin-bottom: 7.25rem;
+        }
     }
 
     &__form {
         display: flex;
+        position: relative;
+
+        @include media('max-lg') {
+            flex-direction: column;
+        }
+    }
+
+    &__form-input-wrap {
+        @include media('max-lg') {
+            margin-bottom: 0.5rem;
+        }
     }
 
     &__form-input {
-        width: 18.75rem;
-        font-size: 1.125rem;
-        line-height: 6rem;
-        padding-left: 1.75rem;
+        width: 100%;
+        font-size: 1rem;
+        line-height: 3.7rem;
+        padding-left: 1.5rem;
+        background: white;
 
         &:not(.s5__form-input--last) {
-            border-right: none;
+            @include media('min-lg') {
+                border-right: none;
+            }
+        }
+
+        @include media('min-lg') {
+            width: 18.75rem;
+            padding-left: 1.75rem;
+            line-height: 6rem;
+            font-size: 1.125rem;
         }
     }
 
     &__submit-button {
-        line-height: 6rem;
-        width: 18.75rem;
+        width: 100%;
+
+        @include media('min-lg') {
+            line-height: 6rem;
+            width: 18.75rem;
+        }
+    }
+
+    &__form-agreement {
+        font-size: 0.6875rem;
+        line-height: 1.18;
+        text-align: center;
+        margin-top: 0.75rem;
+
+        @include media('min-lg') {
+            width: 17.625rem;
+            position: absolute;
+            right: 0.3125rem;
+            bottom: -2.375rem;
+        }
     }
 }
 
@@ -543,7 +763,7 @@ h2 {
         font-size: 2rem;
         text-align: right;
         text-transform: uppercase;
-        color: $text-gray;
+        color: $text-tertiary;
         white-space: pre-line;
         margin: 0 0 0 auto;
         transition: inherit;
@@ -625,7 +845,7 @@ h2 {
     &__job-salary {
         font-weight: 500;
         font-size: 1.125rem;
-        color: $text-gray;
+        color: $text-tertiary;
     }
 
     &__item-button {
@@ -674,7 +894,7 @@ h2 {
 
         border-bottom: 0.0625rem solid $border-gray;
 
-        color: $text-gray;
+        color: $text-tertiary;
 
         transition: $transition--hover;
 
@@ -825,7 +1045,7 @@ h2 {
         font-weight: 500;
         font-size: 1rem;
         line-height: 1.6;
-        color: $text-gray;
+        color: $text-tertiary;
 
         &:not(:last-child) {
             margin-bottom: 0.35rem;
@@ -843,7 +1063,7 @@ h2 {
         a {
             font-size: 0.75rem;
             line-height: 1.25;
-            color: $text-gray;
+            color: $text-tertiary;
 
             &:not(:last-child) {
                 margin-bottom: 0.5rem;

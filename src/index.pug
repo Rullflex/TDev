@@ -11,7 +11,7 @@ block content
 		.container
 			h1.s1__heading #[span.text-primary Цифровизация] девелопмента
 
-			p.s1__subtitle Помогаем девелоперам оптимизировать и&nbsp;автоматизировать#[br] бизнес-процессы с помощью современных IT-решений
+			p.s1__subtitle Помогаем девелоперам оптимизировать и&nbsp;автоматизировать бизнес-процессы с&nbsp;помощью современных IT-решений
 
 			+Button.s1__target-button(primary type="button") Оставить заявку
 
@@ -46,16 +46,26 @@ block content
 			h2.first-primary.s3__heading Услуги
 
 			ul.s3__breadcrumbs
-				li.s3__breadcrumb.s3__breadcrumb--has-slash: span(data-text="сайты") сайты
-				li.s3__breadcrumb.s3__breadcrumb--has-slash: span(data-text="Моб. приложения") Моб. приложения
-				li.s3__breadcrumb: span(data-text="it-инфраструктура") it-инфраструктура
-				li.s3__breadcrumb.s3__breadcrumb--has-slash.s3__breadcrumb--slash-narrow: span(data-text="Бизнес-аналитика") Бизнес-аналитика
-				li.s3__breadcrumb.s3__breadcrumb--has-slash.s3__breadcrumb--slash-narrow: span(data-text="1С-предприятие") 1С-предприятие
-				li.s3__breadcrumb: span(data-text="IP-телефония") IP-телефония
-				li.s3__breadcrumb.s3__breadcrumb--has-slash: span(data-text="ЭДО") ЭДО
-				li.s3__breadcrumb.s3__breadcrumb--has-slash: span(data-text="Умный дом") Умный дом
-				li.s3__breadcrumb.s3__breadcrumb--has-slash: span(data-text="CRM") CRM
-				li.s3__breadcrumb: span(data-text="дизайн") дизайн
+				-
+					const titles = [
+						'Сайты', 'Моб. приложения', 'it-инфраструктура', 'Бизнес-аналитика', 
+						'1С-предприятие', 'IP-телефония', 'ЭДО', 'Умный дом', 'CRM', 'Дизайн',
+					]
+
+				each label, index in titles 
+					- const hasSlash = !!'0134678'.match(index)
+					- const isSlashNarrow = !!'34'.match(index)
+					-
+						const classes = [
+							's3__breadcrumb',
+							{ 
+								's3__breadcrumb--has-slash' : hasSlash, 
+								's3__breadcrumb--slash-narrow': isSlashNarrow
+							}
+						]
+					li(class=classes)
+						.s3__breadcrumb-image: +picture-min(jpg, `s3-i${index + 1}`, 's')
+						span(data-text=label)= label
 
 			.s3__preview-image-wrap
 				+StarSvg.s3__preview-star
@@ -67,17 +77,21 @@ block content
 		.container 
 			h2.first-primary.s4__heading Реализованные#[br] #[span.text-primary проекты]
 
-			+Slider.s4__slider(finite onlyHTML)
+			+Slider.s4__slider(finite)
 				+SliderItems()(overflowVisible)
 					- for(let i = 0; i < 4; i++)
 						+SliderItem.s4__slider-item
-							.s4__slider-image-container: +picture-min(png, 's4-i1', 'l')
+							.s4__slider-image-container: +picture-min(png, 's4-i1', 'sl')
 							p.s4__slider-item-title Мобильное#[br] приложение «Талан»
 							a(href="#").s4__slider-item-link 
 								span Перейти в кейс 
 								+ArrowRightSvg
 
 			a.s4__show-all-link(href="#") 
+				| Смотреть все проекты
+				+ArrowRightSvg
+
+			+Button.s4__show-all-button(href="#" tag="a" outline primary)
 				| Смотреть все проекты
 				+ArrowRightSvg
 
@@ -88,13 +102,14 @@ block content
 			h2.s5__heading Хотите провести #[span.text-primary цифровизацию] бизнеса, но не знаете с чего начать?
 
 			form.form.s5__form
-				.input-wrap 
+				.input-wrap.s5__form-input-wrap
 					input.input.s5__form-input(type="text" name="name" placeholder="Введите имя")
-				.input-wrap 
-					input.input.phone.s5__form-input(type="tel" name="phone" placeholder="Введите номер телефона")
-				.input-wrap 
+				.input-wrap.s5__form-input-wrap
+					input.input.phone.s5__form-input(type="tel" name="phone" placeholder="Введите телефон")
+				.input-wrap.s5__form-input-wrap
 					input.input.s5__form-input.s5__form-input--last(type="email" name="email" placeholder="Введите e-mail")
-				+Button.s5__submit-button(primary type="submit") Оставить заявку
+				+Button.s5__submit-button(primary type="submit") Заказать консультацию
+				.s5__form-agreement Нажимая на кнопку, вы принимаете Положение и Согласие на обработку персональных данных.
 
 	section.s6 
 		.container 

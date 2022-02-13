@@ -1,8 +1,8 @@
 // --- Color system ---
 
 $text-light: #ffffff;
-$text-dark: #4f4f4f;
-$text-gray: #828282;
+$text-secondary: #4f4f4f;
+$text-tertiary: #828282;
 $text-headings: #292929;
 
 $border-gray: #e2e2e2;
@@ -43,7 +43,7 @@ $enable-smooth-scroll: false;
 // --- Body ---
 
 $body-bg: null;
-$body-color: $text-dark;
+$body-color: $text-secondary;
 $body-text-align: null;
 
 // --- Links ---
@@ -83,11 +83,11 @@ $grid-breakpoints: (
 $container-max-widths: (
     sm: 420px,
     md: 480px,
-    lg: 1236px,
+    lg: 1230px,
 );
 
 $grid-columns: 12;
-$grid-gutter-width: 2.25rem;
+$grid-gutter-width: 2rem;
 $grid-row-columns: 6;
 
 @include _assert-ascending($grid-breakpoints, '$grid-breakpoints');

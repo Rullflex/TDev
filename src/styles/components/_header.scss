@@ -2,15 +2,19 @@
     padding: 1.125rem 0;
     z-index: 100;
 
+    &.uk-active {
+        box-shadow: 0 0.375rem 0.75rem rgba(147, 180, 198, 0.2);
+    }
+
     @include media('max-lg') {
-        background: rgba(255, 255, 255, 0.94);
+        background: rgba(255, 255, 255, 1);
     }
 
     @include media('min-lg') {
         padding: 2.4375rem 0;
 
         &.uk-active {
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 1);
             padding: 1rem 0;
 
             .header__logo {
@@ -43,13 +47,16 @@
         }
 
         @include media('min-lg') {
+            font-size: 0.75rem;
             width: 10.25rem;
             line-height: 2.75rem;
         }
     }
 
     &__navigation {
-        margin-left: 3.875rem;
+        @include media('min-lg') {
+            margin-left: 3.875rem;
+        }
     }
 
     &__links {
@@ -58,21 +65,32 @@
 
         @include media('max-lg') {
             flex-direction: column;
+            align-items: flex-end;
         }
     }
 
     &__link-item {
+        @include media('max-lg') {
+            &:not(:last-child) {
+                margin-bottom: 0.375rem;
+            }
+        }
     }
 
     &__link {
         padding: 0.25rem 0.375rem;
 
         font-weight: 600;
-        font-size: 0.75rem;
-        color: $text-dark;
+        font-size: 0.875rem;
+        color: $text-secondary;
         text-transform: uppercase;
 
         transition: $transition--hover;
+
+        @include media('max-lg') {
+            font-weight: normal;
+            color: #333333;
+        }
 
         &:hover {
             color: lighten($color: $primary, $amount: 0.9);

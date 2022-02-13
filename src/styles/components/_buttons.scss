@@ -96,11 +96,8 @@
         }
 
         font-weight: 600;
-        font-size: 1rem;
-
-        @include media('min-lg') {
-            font-size: 1.125rem;
-        }
+        font-size: 1.125rem;
+        line-height: 5.375rem;
     }
 
     &--outline {
@@ -113,6 +110,7 @@
         }
 
         font-weight: 500;
-        font-size: 0.75rem;
+        font-size: 1.125rem;
+        line-height: 5.375rem;
     }
 }
