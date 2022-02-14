@@ -10,7 +10,7 @@ export default function sectionServicesScript() {
         starNode.style.cssText = `transform: rotate(${y}deg)`;
     };
 
-    document.querySelectorAll('.s3__breadcrumb span').forEach((el, index, set) => {
+    document.querySelectorAll('.s3__breadcrumb a').forEach((el, index, set) => {
         el.addEventListener('mouseenter', () => {
             app.changeActivitySet(set, index);
             app.changeActivitySet(imagesSet, index);

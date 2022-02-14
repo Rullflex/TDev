@@ -65,7 +65,7 @@ block content
 						]
 					li(class=classes)
 						.s3__breadcrumb-image: +picture-min(jpg, `s3-i${index + 1}`, 's')
-						span(data-text=label)= label
+						a(href="/product.html" data-text=label)= label
 
 			.s3__preview-image-wrap
 				+StarSvg.s3__preview-star

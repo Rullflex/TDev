@@ -291,7 +291,7 @@ h2 {
             }
         }
 
-        > span {
+        > a {
             cursor: pointer;
             transition: 0.3s cubic-bezier(0.49, 0.44, 0.43, 1);
             position: relative;
@@ -1363,5 +1363,13 @@ h2 {
         @include media('max-lg') {
             display: none;
         }
+    }
+}
+
+.s12 {
+    &__title {
+        font-weight: 500;
+        font-size: 4rem;
+        line-height: 1.2;
     }
 }
