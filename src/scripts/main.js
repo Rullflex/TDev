@@ -9,6 +9,14 @@ ready(function () {
     app.init();
     form.init('form');
 
+    let isDesktop;
+
+    app.matchMediaListener(
+        app.lg,
+        () => (isDesktop = false),
+        () => (isDesktop = true),
+    );
+
     sectionServicesScript();
 
     let prevValue = -1;
@@ -27,7 +35,7 @@ ready(function () {
     }
 
     function handleWindowScroll(event) {
-        if (app.isMobile) {
+        if (!isDesktop) {
             const viewPoint = window.scrollY + window.innerHeight / 2;
             const index = getItemsValues().findIndex((e) => e.top < viewPoint && e.bottom > viewPoint);
 
@@ -48,7 +56,7 @@ ready(function () {
     });
 
     document.querySelectorAll('.s6__step-item').forEach((el) => {
-        if (app.isMobile) {
+        if (!isDesktop) {
             return;
         }
 
@@ -59,7 +67,7 @@ ready(function () {
     });
 
     document.querySelectorAll('.s6__step-item').forEach((el) => {
-        if (app.isMobile) {
+        if (!isDesktop) {
             return;
         }
 
