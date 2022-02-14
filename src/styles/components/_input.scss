@@ -6,6 +6,7 @@
     border-style: solid;
     border-color: $border-cadet;
     transition: $transition--normal;
+    border-radius: 0;
 
     &:focus {
         // стили для активного инпута
