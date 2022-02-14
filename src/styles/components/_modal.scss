@@ -36,6 +36,7 @@
 .callback {
     &__body {
         padding: 4.125rem 1.5rem 3.0625rem;
+        width: 21.4375rem;
 
         @include media('min-lg') {
             padding: 3.5rem 5.5rem 3.125rem;
@@ -97,6 +98,48 @@
         @include media('min-lg') {
             font-size: 0.75rem;
             line-height: 0.9375rem;
+        }
+    }
+}
+
+.thanks {
+    &__body {
+        width: 21.4375rem;
+        padding: 2.25rem 1.5rem 1.5rem;
+
+        @include media('min-lg') {
+            padding: 4.875rem 5.5rem;
+            width: 33.75rem;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.005em;
+        color: #18191f;
+        margin-bottom: 1rem;
+
+        @include media('min-lg') {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    &__subtitle {
+        text-align: center;
+        font-size: 0.875rem;
+        line-height: 1.0625rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__button {
+        width: 100%;
+        line-height: 4rem;
+
+        @include media('min-lg') {
+            line-height: 4rem;
         }
     }
 }
