@@ -11,10 +11,13 @@ export default function sectionServicesScript() {
     };
 
     document.querySelectorAll('.s3__breadcrumb a').forEach((el, index, set) => {
-        el.addEventListener('mouseenter', () => {
+        const updateActiveIndex = (index = -1) => {
             app.changeActivitySet(set, index);
             app.changeActivitySet(imagesSet, index);
-        });
+        };
+
+        el.addEventListener('mouseenter', () => updateActiveIndex(index));
+        el.addEventListener('mouseleave', updateActiveIndex);
     });
 
     app.matchMediaListener(

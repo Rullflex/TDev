@@ -59,7 +59,7 @@ export const app = {
     // меняют класс акстивности в сетах
     changeActivitySet(set, index, activeClass = `active`) {
         set.forEach((e) => e.classList.remove(activeClass));
-        set[index].classList.add(activeClass);
+        set[index]?.classList.add(activeClass);
     },
     //
     changeActivityElement(el, activeClass = `active`) {
