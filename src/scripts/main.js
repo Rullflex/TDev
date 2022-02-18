@@ -34,7 +34,7 @@ ready(function () {
         });
     }
 
-    function handleWindowScroll(event) {
+    function windowScrollHandler(event) {
         if (!isDesktop) {
             const viewPoint = window.scrollY + window.innerHeight / 2;
             const index = getItemsValues().findIndex((e) => e.top < viewPoint && e.bottom > viewPoint);
@@ -48,34 +48,40 @@ ready(function () {
         }
     }
 
-    window.addEventListener('scroll', throttle(handleWindowScroll, 100));
+    // window.addEventListener('scroll', throttle(windowScrollHandler, 100));
 
-    document.querySelectorAll('.s6__step-descr').forEach((el) => {
-        el.dataset.height = el.offsetHeight;
-        el.style.height = '0';
-    });
+    // document.querySelectorAll('.s6__step-item').forEach((el, idx, set) => {
+    //     if (!isDesktop) {
+    //         el.addEventListener('click', () => app.changeActivitySet(set, idx));
+    //     }
+    // });
 
-    document.querySelectorAll('.s6__step-item').forEach((el) => {
-        if (!isDesktop) {
-            return;
-        }
+    // document.querySelectorAll('.s6__step-descr').forEach((el) => {
+    //     el.dataset.height = el.offsetHeight;
+    //     el.style.height = '0';
+    // });
 
-        el.addEventListener('mouseenter', (event) => {
-            const innerDescr = el.querySelector('.s6__step-descr');
-            innerDescr.style.cssText = `height: ${innerDescr.dataset.height}px`;
-        });
-    });
+    // document.querySelectorAll('.s6__step-item').forEach((el) => {
+    //     if (!isDesktop) {
+    //         return;
+    //     }
 
-    document.querySelectorAll('.s6__step-item').forEach((el) => {
-        if (!isDesktop) {
-            return;
-        }
+    //     el.addEventListener('mouseenter', (event) => {
+    //         const innerDescr = el.querySelector('.s6__step-descr');
+    //         innerDescr.style.cssText = `height: ${innerDescr.dataset.height}px`;
+    //     });
+    // });
 
-        el.addEventListener('mouseleave', (event) => {
-            const innerDescr = el.querySelector('.s6__step-descr');
-            innerDescr.style.cssText = `height: 0`;
-        });
-    });
+    // document.querySelectorAll('.s6__step-item').forEach((el) => {
+    //     if (!isDesktop) {
+    //         return;
+    //     }
+
+    //     el.addEventListener('mouseleave', (event) => {
+    //         const innerDescr = el.querySelector('.s6__step-descr');
+    //         innerDescr.style.cssText = `height: 0`;
+    //     });
+    // });
 
     // app.letListClickActive(document.querySelector(`ul.list`))
     // app.dynamicVideo()

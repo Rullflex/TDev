@@ -6,6 +6,7 @@
 
     &:active {
         background: $accent;
+        color: white;
     }
 
     @media (min-width: map-get($grid-breakpoints, lg)) {

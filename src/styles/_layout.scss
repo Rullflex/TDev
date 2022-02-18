@@ -715,8 +715,18 @@ h2 {
         padding-bottom: 9rem;
     }
 
+    .container {
+        @include media('max-lg') {
+            padding: 0;
+        }
+    }
+
     &__heading {
         margin-bottom: 1.75rem;
+
+        @include media('max-lg') {
+            margin-left: 1rem;
+        }
 
         @include media('min-lg') {
             margin-bottom: 5.25rem;
@@ -730,38 +740,39 @@ h2 {
     }
 
     &__step-item {
-        padding: 1.5rem 0;
+        padding: 1.5rem 1rem;
         height: fit-content;
         border-bottom: 0.0625rem solid $border-gray;
         position: relative;
         transition: $transition--normal;
 
-        @include media('max-lg') {
-            &.active {
-                .s6__step-descr {
-                    margin: 0.75rem 0 0 auto;
-                }
-            }
-        }
-
         @include media('min-lg') {
             padding: 1.875rem 1.5rem;
+        }
 
-            &:hover {
-                background: $primary;
-                color: white;
+        &:hover {
+            background: $primary;
+            color: white;
 
-                .s6__step-image {
+            .s6 {
+                &__step-image {
                     visibility: visible;
                     opacity: 1;
                 }
 
-                .s6__step-title {
+                &__step-title,
+                &__step-counter {
                     color: white;
                 }
 
-                .s6__step-descr {
-                    margin: 1.875rem 0 0 auto;
+                &__step-descr {
+                    height: 4.2rem;
+                    margin: 0.75rem 0 0 auto;
+
+                    @include media('min-lg') {
+                        height: 6rem;
+                        margin: 1.875rem 0 0 auto;
+                    }
                 }
             }
         }
@@ -790,7 +801,7 @@ h2 {
 
         position: absolute;
         top: 1.5rem;
-        right: 0;
+        right: 1rem;
 
         @include media('max-lg') {
             color: $text-tertiary;
@@ -825,6 +836,8 @@ h2 {
     }
 
     &__step-descr {
+        height: 0;
+        color: white;
         font-size: 0.75rem;
         overflow: hidden;
         transition: inherit;
@@ -834,7 +847,6 @@ h2 {
         }
 
         @include media('min-lg') {
-            color: white;
             text-align: right;
             font-size: 1rem;
             max-width: 33rem;
