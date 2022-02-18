@@ -363,7 +363,7 @@ export const form = {
         this.validateChange(form);
 
         validate.validators.isMaskComplete = (value, options, key, attributes) => {
-            if (key == 'Телефон' && options == true && value != null) {
+            if (key == 'phone' && options == true && value != null) {
                 if (app.phoneMask().checkCompleteness(value)) {
                     return null;
                 } else {

@@ -59,45 +59,25 @@
     }
 
     &__form {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-    }
-
-    &__form-input-wrap {
-        margin-bottom: 0.5rem;
-    }
-
-    &__form-input {
-        width: 100%;
-        font-size: 1rem;
-        line-height: 4rem;
-        padding-left: 1.5rem;
-        background: white;
-
-        @include media('min-lg') {
-            font-size: 1.125rem;
+        .input-wrap {
+            margin-bottom: 0.5rem;
         }
-    }
 
-    &__submit-button {
-        width: 100%;
-        line-height: 4rem;
+        .form {
+            &__input {
+                height: 4rem;
+            }
 
-        @include media('min-lg') {
-            line-height: 4rem;
-        }
-    }
+            &__submit-button {
+                line-height: 4rem;
+            }
 
-    &__form-agreement {
-        font-size: 0.6875rem;
-        line-height: 1.18;
-        text-align: center;
-        margin-top: 0.75rem;
-
-        @include media('min-lg') {
-            font-size: 0.75rem;
-            line-height: 0.9375rem;
+            &__agreement {
+                @include media('min-lg') {
+                    font-size: 0.75rem;
+                    line-height: 0.9375rem;
+                }
+            }
         }
     }
 }

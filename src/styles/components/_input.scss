@@ -5,8 +5,19 @@
     border-width: 0.0625rem;
     border-style: solid;
     border-color: $border-cadet;
-    transition: $transition--normal;
     border-radius: 0;
+    transition: $transition--normal;
+
+    height: 4rem;
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    background: white;
+
+    @include media('min-lg') {
+        height: 6.25rem;
+        padding-left: 1.75rem;
+        font-size: 1.125rem;
+    }
 
     &:focus {
         // стили для активного инпута
@@ -14,9 +25,11 @@
 
     &-wrap {
         &.has-error {
+            z-index: 2;
+
             #{$self} {
-                // border-color: $danger !important;
-                // color: $danger;
+                border-color: $danger !important;
+                color: $danger;
             }
         }
 

@@ -101,15 +101,7 @@ block content
 			p.s5__float-title оставьте заявку
 			h2.s5__heading Хотите провести #[span.text-primary цифровизацию] бизнеса, но не знаете с чего начать?
 
-			form.form.s5__form
-				.input-wrap.s5__form-input-wrap
-					input.input.s5__form-input(type="text" name="name" placeholder="Введите имя")
-				.input-wrap.s5__form-input-wrap
-					input.input.phone.s5__form-input(type="tel" name="phone" placeholder="Введите телефон")
-				.input-wrap.s5__form-input-wrap
-					input.input.s5__form-input.s5__form-input--last(type="email" name="email" placeholder="Введите e-mail")
-				+Button.s5__submit-button(primary type="submit") Заказать консультацию
-				.s5__form-agreement Нажимая на кнопку, вы принимаете Положение и Согласие на обработку персональных данных.
+			+Form.s5__form(btnText="Заказать консультацию")
 
 	section.s6 
 		.container 
@@ -231,15 +223,7 @@ block content
 					h2.s10__title Остались #[span.text-primary вопросы?]
 					.s10__subtitle Заказжите консультацию, она поможет сформировать точные требования к развитию цифровых технологий в вашем бизнесе
 
-				form.s10__form
-					.input-wrap 
-						input.input.s10__form-input(type="text" name="name" placeholder="Введите ваше имя")
-					.input-wrap 
-						input.input.phone.s10__form-input(type="tel" name="phone" placeholder="Введите телефон")
-					.input-wrap 
-						input.input.s10__form-input(type="email" name="email" placeholder="Введите e-mail")
-					+Button.s10__submit-button(primary type="submit") Заказать консультацию
-					.s10__form-agreement Нажимая на кнопку, вы принимаете Положение и Согласие на обработку персональных данных.
+				+Form.s10__form(btnText="Заказать консультацию")
 
 	section#section-contacts.s11 
 		.container 

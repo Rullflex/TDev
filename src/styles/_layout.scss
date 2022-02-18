@@ -647,61 +647,43 @@ h2 {
     }
 
     &__form {
-        display: flex;
-        position: relative;
-
-        @include media('max-lg') {
-            flex-direction: column;
+        @include media('min-lg') {
+            flex-direction: row;
         }
-    }
 
-    &__form-input-wrap {
-        @include media('max-lg') {
-            margin-bottom: 0.5rem;
-        }
-    }
+        .input-wrap {
+            @include media('max-lg') {
+                margin-bottom: 0.5rem;
+            }
 
-    &__form-input {
-        width: 100%;
-        font-size: 1rem;
-        line-height: 3.7rem;
-        padding-left: 1.5rem;
-        background: white;
-
-        &:not(.s5__form-input--last) {
-            @include media('min-lg') {
-                border-right: none;
+            &:not(:last-child) {
+                @include media('min-lg') {
+                    margin-right: -1px;
+                }
             }
         }
 
-        @include media('min-lg') {
-            width: 18.75rem;
-            padding-left: 1.75rem;
-            line-height: 6rem;
-            font-size: 1.125rem;
-        }
-    }
+        .form {
+            &__input {
+                @include media('min-lg') {
+                    width: 18.75rem;
+                }
+            }
 
-    &__submit-button {
-        width: 100%;
+            &__submit-button {
+                @include media('min-lg') {
+                    width: 18.75rem;
+                }
+            }
 
-        @include media('min-lg') {
-            line-height: 6rem;
-            width: 18.75rem;
-        }
-    }
-
-    &__form-agreement {
-        font-size: 0.6875rem;
-        line-height: 1.18;
-        text-align: center;
-        margin-top: 0.75rem;
-
-        @include media('min-lg') {
-            width: 17.625rem;
-            position: absolute;
-            right: 0.3125rem;
-            bottom: -2.375rem;
+            &__agreement {
+                @include media('min-lg') {
+                    width: 17.625rem;
+                    position: absolute;
+                    right: 0.3125rem;
+                    bottom: -2.375rem;
+                }
+            }
         }
     }
 }
@@ -1172,6 +1154,7 @@ h2 {
             display: flex;
             justify-content: space-between;
             border: 0.0625rem solid $border-cadet;
+            border-right: none;
         }
     }
 
@@ -1200,62 +1183,18 @@ h2 {
         @include media('min-lg') {
             width: 37.5rem;
         }
-    }
 
-    &__form-input {
-        width: 100%;
-        font-size: 1rem;
-        line-height: 3.7rem;
-        padding-left: 1.5rem;
-        background: white;
-
-        &:not(.s5__form-input--last) {
-            @include media('min-lg') {
-                border-right: none;
+        .form {
+            &__input {
+                margin-top: -0.0625rem;
             }
-        }
 
-        @include media('min-lg') {
-            padding-left: 1.75rem;
-            line-height: 6rem;
-            font-size: 1.125rem;
-        }
-    }
-
-    &__form-input {
-        width: 100%;
-        padding-left: 1.5rem;
-        height: 4rem;
-        font-size: 1rem;
-
-        @include media('max-lg') {
-            border-bottom: none;
-        }
-
-        @include media('min-lg') {
-            padding-left: 1.5rem;
-            height: 6.25rem;
-            font-size: 1.125rem;
-            border-top: none;
-            border-right: none;
-        }
-    }
-
-    &__submit-button {
-        width: 100%;
-    }
-
-    &__form-agreement {
-        font-size: 0.6875rem;
-        line-height: 1.18;
-        text-align: center;
-        margin-top: 0.75rem;
-
-        @include media('min-lg') {
-            width: 38.625rem;
-            position: absolute;
-            right: 0.3125rem;
-            bottom: -1.875rem;
+            &__agreement {
+                @include media('min-lg') {
+                    position: absolute;
+                    bottom: -1.5rem;
+                }
+            }
         }
     }
 }

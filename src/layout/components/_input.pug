@@ -1,0 +1,14 @@
+mixin Input
+	-
+		const { phone } = Component(attributes, {
+			phone: { type: Boolean, default: false },
+		})
+
+		const classes = {
+			'input': true, 
+			'phone': phone, 
+		}
+
+	.input-wrap
+		input(class=classes)&attributes(attributes)
+
