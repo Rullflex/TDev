@@ -31,10 +31,20 @@ h2 {
     padding-top: 3.3rem;
     padding-bottom: 2rem;
 
+    @include media('max-lg') {
+        height: calc(100vh - 7rem);
+    }
+
     @include media('min-lg') {
         padding-top: 15.75rem;
         padding-bottom: 8.8125rem;
         margin-top: -7.75rem;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 
     &__bg {
@@ -74,7 +84,8 @@ h2 {
     &__target-button {
         width: 100%;
         line-height: 5.4375rem;
-        margin-top: 26.4rem;
+        margin-top: auto;
+        margin-bottom: 0;
 
         @include media('min-lg') {
             width: 23.625rem;
@@ -112,7 +123,7 @@ h2 {
 
         @include ibg(rgb(240, 236, 235));
 
-        width: 50rem;
+        width: 49.85rem;
         height: 34rem;
 
         position: absolute;
