@@ -77,7 +77,7 @@ block content
 		.container 
 			h2.first-primary.s4__heading Реализованные#[br] #[span.text-primary проекты]
 
-			+Slider.s4__slider(finite)
+			+Slider.s4__slider(onlyHTML)
 				+SliderItems()(overflowVisible)
 					- for(let i = 0; i < 4; i++)
 						+SliderItem.s4__slider-item
