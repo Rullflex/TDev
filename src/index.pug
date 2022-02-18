@@ -63,7 +63,7 @@ block content
 								's3__breadcrumb--slash-narrow': isSlashNarrow
 							}
 						]
-					li(class=classes)
+					li(class=classes data-uk-scrollspy=`cls: uk-animation-slide-${index % 2 ? 'right' : 'left'}`)
 						.s3__breadcrumb-image: +picture-min(jpg, `s3-i${index + 1}`, 's')
 						a(href="/product.html" data-text=label)= label
 

@@ -17,8 +17,8 @@ export const app = {
             this.isMobile.Windows(),
     },
     md: 768,
-    lg: 1200,
-    apiSrc: '/api/',
+    lg: 1230,
+    apiSrc: '/',
     loaderHtml: `<div class="loader-wrap">
         <div class="loader">
             <div></div>
@@ -484,29 +484,22 @@ export const form = {
 
     showSuccess(form) {
         // ym(71270149,'reachGoal','form')
-        // UIkit.modal(`#thanks`).show();
+        UIkit.modal(`#thanks`).show();
 
         this.sendFormData(form);
     },
 
-    sendFormData(form, phpSrc = `${app.apiSrc}mail.php`) {
-        const formData = new FormData(typeof form == 'string' ? document.querySelector(form) : form);
+    async sendFormData(form, phpSrc = `/mail.php`) {
+        const body = new FormData(typeof form == 'string' ? document.querySelector(form) : form);
+        const options = { method: 'post', body, mode: 'no-cors' };
 
-        fetch(phpSrc, {
-            method: 'post',
-            body: formData,
-            mode: 'no-cors',
-        })
-            .then((response) => {
-                // console.log(response)
-                return response.text();
-            })
-            .then((text) => {
-                // console.log(text)
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        try {
+            const response = await fetch(phpSrc, options);
+
+            return response.text();
+        } catch (error) {
+            console.error(error);
+        }
     },
 
     formConstraints(form) {
