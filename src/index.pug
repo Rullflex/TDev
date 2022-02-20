@@ -4,6 +4,9 @@ prepend head
 	title Цифровизация девелопмента
 	meta(name="description" content="Помогаем девелоперам оптимизировать и автоматизировать бизнес-процессы с помощью современных IT-решений")
 
+block header 
+	+headerDefault()(clickableLogo=false, scrollableMenu)
+
 block content
 	section.s1
 		.s1__bg: +picture-min(jpg, 's1-bg', 'sl')
@@ -13,7 +16,7 @@ block content
 
 			p.s1__subtitle Помогаем девелоперам оптимизировать и&nbsp;автоматизировать бизнес-процессы с&nbsp;помощью современных IT-решений
 
-			+Button.s1__target-button(primary type="button" data-uk-toggle="#callback") Оставить заявку
+			+Button.s1__target-button(primary type="button" data-uk-toggle="#callback" data-context="Клик с первого экрана на главной") Оставить заявку
 
 	section#section-about.s2
 		.container 
@@ -65,7 +68,7 @@ block content
 						]
 					li(class=classes data-uk-scrollspy=`cls: uk-animation-slide-${index % 2 ? 'right' : 'left'}`)
 						.s3__breadcrumb-image: +picture-min(jpg, `s3-i${index + 1}`, 's')
-						a(href="/product.html" data-text=label)= label
+						a(class="s3__breadcrumb-link" href="#callback" data-uk-toggle="#callback" data-context=`Клик по услуге: ${label}` data-text=label)= label
 
 			.s3__preview-image-wrap
 				+StarSvg.s3__preview-star
@@ -77,21 +80,26 @@ block content
 		.container 
 			h2.first-primary.s4__heading Реализованные#[br] #[span.text-primary проекты]
 
+			-
+				const cases = [
+					'Внедрение ЭДО и ЮЗЭДО', 'Внедрение 1С', 'Внедрение 1С Управление проектами', 'Разработка корп портала на базе Б24' 
+				]
+
 			+Slider.s4__slider(onlyHTML)
 				+SliderItems()(overflowVisible)
-					- for(let i = 0; i < 4; i++)
+					each item in cases
 						+SliderItem.s4__slider-item
 							.s4__slider-image-container: +picture-min(png, 's4-i1', 'sl')
-							p.s4__slider-item-title Мобильное#[br] приложение «Талан»
-							a(href="#").s4__slider-item-link 
+							p.s4__slider-item-title= item
+							a(href="#").s4__slider-item-link
 								span Перейти в кейс 
 								+ArrowRightSvg
 
-			a.s4__show-all-link(href="#") 
+			a.s4__show-all-link(href="/cases.html") 
 				| Смотреть все проекты
 				+ArrowRightSvg
 
-			+Button.s4__show-all-button(href="#" tag="a" outline primary)
+			+Button.s4__show-all-button(href="/cases.html" tag="a" outline primary)
 				| Смотреть все проекты
 				+ArrowRightSvg
 

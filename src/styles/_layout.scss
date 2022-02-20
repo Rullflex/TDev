@@ -274,7 +274,8 @@ h2 {
             }
 
             &::after {
-                content: 'Подробнее';
+                // content: 'Подробнее';
+                content: 'Оставить заявку';
                 color: $text-tertiary;
                 font-weight: 500;
                 font-size: 0.625rem;
@@ -518,12 +519,17 @@ h2 {
         .slider-item__content {
             padding: 1.125rem;
             height: 23.25rem;
+            // remove link
+            height: 21.25rem;
 
             border: 0.0625rem solid $border-gray;
 
             @include media('min-lg') {
                 padding: 1.25rem;
                 height: 36.875rem;
+
+                // remove link
+                height: 34.875rem;
             }
 
             &:active {
@@ -575,6 +581,9 @@ h2 {
     }
 
     &__slider-item-link {
+        // remove link
+        display: none;
+
         font-weight: 500;
         font-size: 1rem;
         line-height: 1.375rem;

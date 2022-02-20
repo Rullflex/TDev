@@ -2,35 +2,37 @@
     const headerLinksList = [
         {
             label: 'О нас',
-            href: '#section-about',
+            href: '/index.html#section-about',
         },
         {
             label: 'Услуги',
-            href: '#section-services',
+            href: '/index.html#section-services',
         },
         {
             label: 'Проекты',
-            href: '#section-projects',
+            href: '/index.html#section-projects',
         },
         {
             label: 'Команда',
-            href: '#section-team',
+            href: '/index.html#section-team',
         },
         {
             label: 'Вакансии',
-            href: '#section-vacancies',
+            href: '/index.html#section-vacancies',
         },
         {
             label: 'Контакты',
-            href: '#section-contacts',
+            href: '/index.html#section-contacts',
         },
     ]
 
-mixin headerLinksList
+mixin headerLinksList(isScrollable)
     nav.header__navigation&attributes(attributes)
         ul.header__links
             each link, idx  in headerLinksList
-                li.header__link-item: a.header__link(href=link.href title=link.label data-uk-scroll)= link.label
+                - const { href, label } = link
+                - const attrs = { href, 'data-uk-scroll': isScrollable }
+                li.header__link-item: a.header__link&attributes(attrs)= label
 
 
 mixin menu
@@ -51,15 +53,25 @@ mixin Header
         block
 
 //- Template
+mixin headerDefault
+    -
+        const { scrollableMenu, clickableLogo } = Component(attributes, {
+            scrollableMenu: { type: Boolean, default: false },
+            clickableLogo: { type: Boolean, default: true },
+        })
 
-+Header.header(sticky)
-    .container 
-        .header__row
-            .header__logo: +LogoSvg
+    +Header.header(sticky)
+        .container 
+            .header__row
+                if clickableLogo
+                    a.header__logo(href="/"): +LogoSvg
+                else 
+                    .header__logo: +LogoSvg
 
-            +menu
-                +headerLinksList
 
-            +headerLinksList.d-none.d-lg-block
+                +menu
+                    +headerLinksList(scrollableMenu)
 
-            +Button.header__callback-button(href=phoneLink tag="a" outline primary)= phoneNumber
+                +headerLinksList(scrollableMenu).d-none.d-lg-block
+
+                +Button.header__callback-button(href=phoneLink tag="a" outline primary)= phoneNumber
