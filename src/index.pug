@@ -56,8 +56,8 @@ block content
 					]
 
 				each label, index in titles 
-					- const hasSlash = !!'0134678'.match(index)
-					- const isSlashNarrow = !!'34'.match(index)
+					- const hasSlash = [0, 1, 3, 4 ,6, 7, 8].some((idx) => idx === index)
+					- const isSlashNarrow = [3, 4].some((idx) => idx === index)
 					-
 						const classes = [
 							's3__breadcrumb',
@@ -80,20 +80,7 @@ block content
 		.container 
 			h2.first-primary.s4__heading Реализованные#[br] #[span.text-primary проекты]
 
-			-
-				const cases = [
-					'Внедрение ЭДО и ЮЗЭДО', 'Внедрение 1С', 'Внедрение 1С Управление проектами', 'Разработка корп портала на базе Б24' 
-				]
-
-			+Slider.s4__slider(onlyHTML)
-				+SliderItems()(overflowVisible)
-					each item in cases
-						+SliderItem.s4__slider-item
-							.s4__slider-image-container: +picture-min(png, 's4-i1', 'sl')
-							p.s4__slider-item-title= item
-							a(href="#").s4__slider-item-link
-								span Перейти в кейс 
-								+ArrowRightSvg
+			+casesSlider()(short)
 
 			a.s4__show-all-link(href="/cases.html") 
 				| Смотреть все проекты

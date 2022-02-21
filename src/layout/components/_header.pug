@@ -75,3 +75,13 @@ mixin headerDefault
                 +headerLinksList(scrollableMenu).d-none.d-lg-block
 
                 +Button.header__callback-button(href=phoneLink tag="a" outline primary)= phoneNumber
+
+mixin headerInternal
+    -
+        const { backUrl } = Component(attributes, {
+            backUrl: { type: String, default: '/index.html' },
+        })
+
+    a.header-internal(href=backUrl)
+        .container.header-internal__container 
+            +ArrowRightSvg.header-internal__arrow

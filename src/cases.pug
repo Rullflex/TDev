@@ -4,21 +4,12 @@ prepend head
 	title Реализованные проекты
 	meta(name="description" content="Реализованные проекты")
 
+block header 
+	+headerInternal
+
 block content
-	section#section-projects.s4 
+	section.s12
 		.container 
-			h2.first-primary.s4__heading Реализованные#[br] #[span.text-primary проекты]
+			h1.internal-page.s12__title Реализованные#[br] проекты
 
-			-
-				const cases = [
-					'Внедрение ЭДО и ЮЗЭДО', 'Внедрение 1С', 'Внедрение 1С Управление проектами', 'Разработка корп портала на базе Б24', 
-					'Внедрение CRM', 'BI Qlik - бизнес аналитика', 'Сайты и лендинги', 'Мобильные приложения', 'Реализация проектов “Умный дом”',
-					'Система “Service desk”', 'Бюджетирование и казначейство',
-				]
-
-			+Slider.s4__slider(onlyHTML)
-				+SliderItems()(overflowVisible)
-					each item in cases
-						+SliderItem.s4__slider-item
-							.s4__slider-image-container: +picture-min(png, 's4-i1', 'sl')
-							p.s4__slider-item-title= item
+			+casesSlider

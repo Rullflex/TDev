@@ -1,0 +1,36 @@
+mixin casesSlider
+	-
+		const { short } = Component(attributes, {
+			short: { type: Boolean, default: false },
+		})
+
+		let cases = [
+			{ id: 1, label: 'Внедрение ЭДО\u000Aи ЮЗЭДО' },
+			{ id: 2, label: 'Внедрение\u000A1С' },
+			{ id: 3, label: 'Внедрение 1С\u000AУправление проектами' },
+			{ id: 4, label: 'Разработка корп. портала\u000Aна базе Б24' },
+			{ id: 5, label: 'Внедрение\u000ACRM' },
+			{ id: 6, label: 'BI Qlik - бизнес\u000Aаналитика' },
+			{ id: 7, label: 'Сайты и\u000Aлендинги' },
+			{ id: 8, label: 'Мобильное\u000Aприложение «Талан»' },
+			{ id: 9, label: 'Система\u000A“Service desk”' },
+			{ id: 10, label: 'Реализация проектов\u000A“Умный дом”' },
+			{ id: 11, label: 'Бюджетирование\u000Aи казначейство' },
+		]
+
+		if (short) {
+			const shortedCasesIds = [6, 7, 8, 10];
+			cases = cases.filter(({ id }) => shortedCasesIds.some((idx) => idx === id))
+		}
+
+	+Slider.cases-slider(onlyHTML)
+		+SliderItems()(overflowVisible)
+			each item in cases
+				- const { id, label } = item
+				+SliderItem.cases-slider__item
+					.cases-slider__image-container: +picture-min(png, `cases-i${id}`)
+					p.cases-slider__item-title= label
+					//- a(href="#").cases-slider__item-link
+					//- 	span Перейти в кейс 
+					//- 	+ArrowRightSvg
+

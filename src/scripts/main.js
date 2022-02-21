@@ -35,7 +35,7 @@ ready(function () {
         if (isDesktop) {
             slider?.$destroy();
         } else {
-            slider = UIkit.slider('.s4__slider', { finite: true });
+            slider = UIkit.slider('.cases-slider', { finite: true });
         }
     }
 
