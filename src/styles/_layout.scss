@@ -960,6 +960,7 @@ h2 {
         color: $text-tertiary;
 
         transition: $transition--hover;
+        overflow: hidden;
 
         @include media('min-lg') {
             padding: 2rem;
