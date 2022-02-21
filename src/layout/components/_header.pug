@@ -82,6 +82,6 @@ mixin headerInternal
             backUrl: { type: String, default: '/index.html' },
         })
 
-    a.header-internal(href=backUrl)
+    .header-internal
         .container.header-internal__container 
-            +ArrowRightSvg.header-internal__arrow
+            a(href=backUrl): +ArrowRightSvg.header-internal__arrow

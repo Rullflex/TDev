@@ -1,0 +1,14 @@
+mixin internalFormSection
+	-
+		const { title, context } = Component(attributes, {
+			title: { type: String, default: 'Мы здесь, чтобы сделать сферу девелопмента открытой и технологичной' },
+			context: { type: String, default: '' },
+		})
+
+	section.s13
+		.container 
+			h2.s13__title= title
+
+			+Form.s13__form(simplified btnText="Оставить заявку" sendContext=context)
+
+

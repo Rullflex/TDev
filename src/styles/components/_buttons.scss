@@ -104,6 +104,12 @@
             @include solid($dark);
         }
 
+        &#{$self}--no-arrow {
+            &::after {
+                content: none;
+            }
+        }
+
         font-weight: 600;
         font-size: 1.125rem;
         line-height: 5.375rem;

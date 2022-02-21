@@ -1,15 +1,17 @@
 mixin Button
 	-
-		const { tag, outline, primary, secondary } = Component(attributes, {
+		const { tag, outline, primary, secondary, noArrow } = Component(attributes, {
 			tag: { type: String, default: 'button' },
 			outline: { type: Boolean, default: false },
 			primary: { type: Boolean, default: false },
 			secondary: { type: Boolean, default: false },
+			noArrow: { type: Boolean, default: false },
 		})
 
 		const classes = {
 			'button--primary': primary, 
 			'button--secondary': secondary, 
+			'button--no-arrow': noArrow, 
 			'button--outline': outline, 
 			'button--solid': !outline, 
 		}

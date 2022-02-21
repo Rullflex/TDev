@@ -107,18 +107,15 @@
     display: block;
     padding: 0.6rem 0;
     margin-bottom: 0.4375rem;
-    transition: $transition--normal;
 
     @include media('min-lg') {
-        padding: 2.1875rem 0;
+        padding: 1rem 0;
         margin-bottom: 1.4375rem;
     }
 
-    &:hover {
-        background: #f9f9f9;
-    }
-
     &__arrow {
+        padding: 0.625rem 0.5rem;
+        box-sizing: content-box;
         width: 1.0625rem;
         color: $text-headings;
         transform: scaleX(-1);

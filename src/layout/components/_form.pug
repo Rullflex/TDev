@@ -1,15 +1,17 @@
 mixin Form
 	-
-		const { btnText, hasAgreement, agreemenText, sendContext } = Component(attributes, {
+		const { simplified, btnText, hasAgreement, agreemenText, sendContext } = Component(attributes, {
 			btnText: { type: String, default: 'Отправить' },
 			sendContext: { type: String, default: '' },
 			hasAgreement: { type: Boolean, default: true },
+			simplified: { type: Boolean, default: false },
 			agreemenText: { type: String, default: 'Нажимая на кнопку, вы принимаете Положение и&nbsp;Согласие на обработку персональных данных.'},
 		})
 
 	form.form&attributes(attributes)
-		+Input.form__input(type="text" name="name" placeholder="Введите имя" required)
-		+Input.form__input(phone type="tel" name="phone" placeholder="Введите телефон" required)
+		if !simplified
+			+Input.form__input(type="text" name="name" placeholder="Введите имя" required)
+			+Input.form__input(phone type="tel" name="phone" placeholder="Введите телефон" required)
 		+Input.form__input(type="email" name="email" placeholder="Введите e-mail" required)
 		if sendContext
 			input(type="hidden" name="context" value=sendContext)

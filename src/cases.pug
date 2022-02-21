@@ -4,12 +4,13 @@ prepend head
 	title Реализованные проекты
 	meta(name="description" content="Реализованные проекты")
 
-block header 
+block content
 	+headerInternal
 
-block content
 	section.s12
 		.container 
 			h1.internal-page.s12__title Реализованные#[br] проекты
 
 			+casesSlider
+
+	+internalFormSection(context="Заявка на странице кейсов")

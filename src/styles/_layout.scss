@@ -583,10 +583,9 @@ h2 {
 
             &__agreement {
                 @include media('min-lg') {
-                    width: 17.625rem;
                     position: absolute;
-                    right: 0.3125rem;
-                    bottom: -2.375rem;
+                    bottom: -2rem;
+                    color: $text-tertiary;
                 }
             }
         }
@@ -1234,6 +1233,59 @@ h2 {
 
         @include media('min-lg') {
             margin-bottom: 4.45rem;
+        }
+    }
+}
+
+.s13 {
+    padding-top: 1.5625rem;
+    padding-bottom: 4.75rem;
+
+    @include media('min-lg') {
+        padding-top: 6.25rem;
+        padding-bottom: 7.4375rem;
+    }
+
+    &__title {
+        font-weight: 500;
+        line-height: 1.5;
+
+        margin-bottom: 1.5rem;
+
+        @include media('max-lg') {
+            font-size: 1.5rem;
+        }
+
+        @include media('min-lg') {
+            max-width: 54.125rem;
+            margin-bottom: 4.4375rem;
+        }
+    }
+
+    &__form {
+        @include media('min-lg') {
+            flex-direction: row;
+        }
+
+        .form {
+            &__submit-button {
+                @include media('max-lg') {
+                    line-height: 4rem;
+                }
+            }
+
+            @include media('min-lg') {
+                &__input,
+                &__submit-button {
+                    width: 37.5rem;
+                }
+
+                &__agreement {
+                    position: absolute;
+                    bottom: -2rem;
+                    color: $text-tertiary;
+                }
+            }
         }
     }
 }
