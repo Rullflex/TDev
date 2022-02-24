@@ -231,9 +231,9 @@ block content
 					.s11__contacts-info-container
 						.s11__contacts-info-block
 							.s11__contacts-info-title Адрес:
-							.s11__contacts-info-item г.Ижевск ул.Адмирала Ушакова д.5
+							.s11__contacts-info-item Россия, г. Пермь ул. Стахановская, 54, литера&nbsp;П
 						.s11__contacts-info-block
 							.s11__contacts-info-title Контакты:
-							a.s11__contacts-info-item(href="tel:+79999999999") +7 999 999 99 99
-							a.s11__contacts-info-item(href="tel:++79998888877") +7 999 888 88 77
+							a.s11__contacts-info-item(href=`mailto:${mailAdress}`)= mailAdress
+							a.s11__contacts-info-item(href=phoneLink)= phoneNumber
 
